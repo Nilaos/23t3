@@ -1,7 +1,7 @@
 
 #include <stdio.h>
 
-#define NUM_PEOPLE 42 // TODO: Correct this! Or add more friends!
+#define NUM_PEOPLE 6 // TODO: Correct this! Or add more friends!
 #define MAX_NAME_LEN 101
 
 // A basic program that will print out some statistics about your table!
@@ -23,20 +23,26 @@ int main(int argc, char *argv[])
     // Sarah
     // Kim
     // Hint: A loop may help for this...
-    scanf("%100s", people[0]);
+    int i = 0;
+    while (i < NUM_PEOPLE)
+    {
+        scanf("%100s", people[i]);
+        // i += 1;
+        i++;
+    }
 
     // Advanced: The above scanf has a 100 in it. What security risk does this limit?
 
     int years[NUM_PEOPLE];
     int year_sum = 0;
-    for (int j = 0; i < NUM_PEOPLE; i++)
+    for (int j = 0; j < NUM_PEOPLE; j++)
     {
-        printf("What year is %s in? ", people[i]);
-        scanf(/* TODO: Read in what year each person is in! */);
-        year_sum += years[i];
+        printf("What year is %s in? ", people[j]);
+        scanf("%d", &years[j]);
+        year_sum += years[j];
     }
 
-    int average_year = (int)year_sum / (int)NUM_PEOPLE;
+    double average_year = (double)year_sum / (double)NUM_PEOPLE;
     // TODO: Calculate this properly! Should the type and type-cast be a different type?
     printf("The average year of our table is %lf\n", average_year);
 
