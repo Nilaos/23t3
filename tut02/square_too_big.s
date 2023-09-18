@@ -26,18 +26,6 @@ main:
 	# without doing any calculations.
 
 	# Add a print statement here...
-main__if_x_gt_46340:
-		#     if (x < 46340)
-		#         goto main__x_lt_46340;
-	li	$t2, 	46340
-	blt	$t0,	$t2, 	main__x_lt_46340
-	
-		#     printf("square too big for 32 bits\n");
-	la	$a0,	too_big_str	# 
-	li	$v0,	4		# syscall no. 4 
-	syscall
-		#     // } else {
-main__x_lt_46340:
 
 	mul	$t1,	$t0,	$t0	# y = x * x;
 
