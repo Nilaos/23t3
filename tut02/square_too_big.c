@@ -12,12 +12,18 @@ int main(void)
     printf("Enter a number: ");
     scanf("%d", &x);
 
-    if (x > SQUARE_MAX) {
-        printf("square too big for 32 bits\n");
-    } else {
-        y = x * x;
-        printf("%d\n", y);
-    }
+    if (x <= SQUARE_MAX)
+        goto square_if_ok;
+// if (x > SQUARE_MAX) {
+square_if_too_big:
+    printf("square too big for 32 bits\n");
+    goto main__end;
+// } else {
+square_if_ok:
+    y = x * x;
+    printf("%d\n", y);
+    // }
+main__end:
 
     return 0;
 }

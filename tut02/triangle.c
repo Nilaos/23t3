@@ -4,12 +4,22 @@
 
 int main(void)
 {
-    for (int i = 1; i <= 10; i++) {
-        for (int j = 0; j < i; j++) {
-            printf("*");
-        }
-        printf("\n");
+// for (int i = 1; i <= 10; i++)
+i_loop_init:
+    int i = 1;
+i_loop_cond:
+    if (i > 10)
+        goto i_loop_end;
+    // while (i <= 10)
+    // {
+
+    for (int j = 0; j < i; j++)
+    {
+        printf("*");
     }
+    printf("\n");
+    i++;
+i_loop_end:
+
     return 0;
-}
 }
