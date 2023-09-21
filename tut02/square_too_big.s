@@ -24,8 +24,26 @@ main:
 	# TODO: Add a check here to see if the number is too big
 	# to be squared. If it is, print the error message and return
 	# without doing any calculations.
+	
+	li 	$t2, 	46340
 
 	# Add a print statement here...
+
+	#     if (x <= SQUARE_MAX)
+	#         goto if_x_lt_46340;
+	ble	$t0,	$t2,	if_x_lt_46340
+	# gotos turn into branch statements
+
+	#     printf("square too big for 32 bits\n");
+	la	$a0,	too_big_str	#
+	li	$v0,	4		# syscall no. 4
+	syscall
+
+	#     goto if_x_lt_46340_end;
+	b	if_x_lt_46340_end
+
+if_x_lt_46340:
+
 
 	mul	$t1,	$t0,	$t0	# y = x * x;
 
@@ -38,6 +56,8 @@ main:
 	li	$a0,	'\n'
 	li	$v0,	11		# syscall no. 11
 	syscall
+
+if_x_lt_46340_end:
 
 main__end:
 					# return 0;
