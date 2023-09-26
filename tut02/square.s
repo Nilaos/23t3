@@ -1,10 +1,14 @@
 
 
+
+
 # Everything after this is code
 	.text
 
+
 main:
 	# Main function to calculate the square of a number
+	#     int x, y;
 	# x is in $t0
 	# y is in $t1
 
@@ -13,20 +17,28 @@ main:
 	la	$a0, 	input_str
 	syscall
 
-	li	$v0, 	5	# Read int x
-	syscall
-	# Int is now in v0 - move it out!
+	#     printf("Enter a number: ");
+	la	$a0, 	input_str
+	li	$v0, 	4
+	syscall		# Syscall 4 - Print a string
+
+	#     scanf("%d", &x);
+	li	$v0, 	5
+	syscall 	# Syscall 5 - read integer - stores into v0
 	move	$t0, 	$v0
 
-	mul	$t1, 	$t0,	$t0	# y = x * x;
+	#     y = x * x;
+	mul	$t1, 	$t0,	$t0
 
-	li	$v0, 	1	# Syscall 1 - print int y 
+	#     printf("%d", y);
 	move	$a0, 	$t1
-	syscall
+	li	$v0, 	1
+	syscall		# Syscall 1 - Print a number
 
-	li	$v0, 	11
+	#     printf("\n");
 	li	$a0, 	'\n'
-	syscall
+	li	$v0, 	11
+	syscall		# Syscall 11 - Print a character
 
 					# return 0;
 	li	$v0,	0		# $v0 = 0

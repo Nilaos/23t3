@@ -1,7 +1,10 @@
+
+
 // print the square of a number
 #include <stdio.h>
 
-int main(void) {
+int main(void)
+{
     int x, y;
 
     printf("Enter a number: ");

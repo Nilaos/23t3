@@ -28,6 +28,18 @@ main:
 	li 	$t2, 	46340
 
 	# Add a print statement here...
+	li	$t2, 	46340
+	# if (x <= SQUARE_MAX)
+        # goto square_if_ok;
+	ble	$t0, 	$t2, 	square_if_ok
+
+square_if_too_big:
+	# printf("square too big for 32 bits\n");
+	la	$a0,	too_big_str	# 
+	li	$v0,	4		# syscall no. 4 
+	syscall
+	#     goto main__end;
+	b	main__end
 
 	#     if (x <= SQUARE_MAX)
 	#         goto if_x_lt_46340;
