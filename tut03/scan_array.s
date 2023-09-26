@@ -27,6 +27,17 @@ scan_loop_cond:
 
 	# TODO: calculate &(numbers[i]) and store the value in $v0 into it
 	# Hint: Is there a simple formula to use here?
+	# 1) Load the base address
+	la	$t2, 	numbers
+	# 2) Calculate the offset = sizeof(1 element) * index (in this case, loop counter)
+	mul	$t3, 	$t0,	4	# sizeof(elem) is 4, * index
+	
+	# sw	$t1, 	numbers($t3) 	# Nice short way
+	
+	# 3) Add base address and offset to calculate final memory address
+	add	$t4, 	$t2, 	$t3	# *numbers[i]
+	# 4) Load the value!
+	sw	$t2,	($t4)		# numbers[i] = $t2
 
 					# Jump back to the loop condition
 	addi    $t0, $t0, 1             # i++;
