@@ -1,0 +1,2127 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>
+        COMP1521 23T3 —
+        
+Week 04
+Tutorial
+Answers
+
+    </title><link rel="canonical" href="https://cgi.cse.unsw.edu.au/~cs1521/23T3/">
+
+    <link rel="stylesheet" href="COMP1521%2023T3%20%E2%80%94%20Week%2004%20Tutorial%20Answers_files/bootstrap.min.css" integrity="sha256-aAr2Zpq8MZ+YA/D6JtRD3xtrwpEz2IqOS+pWD/7XKIw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="COMP1521%2023T3%20%E2%80%94%20Week%2004%20Tutorial%20Answers_files/course.css">
+
+    <script src="COMP1521%2023T3%20%E2%80%94%20Week%2004%20Tutorial%20Answers_files/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="COMP1521%2023T3%20%E2%80%94%20Week%2004%20Tutorial%20Answers_files/popper.min.js" integrity="sha256-/ijcOLwFf26xEYAjW75FizKVo5tnTYiQddPZoLUHHZ8=" crossorigin="anonymous"></script>
+    <script src="COMP1521%2023T3%20%E2%80%94%20Week%2004%20Tutorial%20Answers_files/bootstrap.min.js" integrity="sha256-OFRAJNoaD8L3Br5lglV7VyLRf0itmoBzWUoM+Sji4/8=" crossorigin="anonymous"></script>
+
+    <script src="COMP1521%2023T3%20%E2%80%94%20Week%2004%20Tutorial%20Answers_files/course.js"></script>
+
+    <link rel="icon" type="image/png" href="COMP1521%2023T3%20%E2%80%94%20Week%2004%20Tutorial%20Answers_files/favicon.ico">
+
+    <!-- <script async src="https://static.codepen.io/assets/embed/ei.js"></script> -->
+
+    <!-- MathJax. -->
+    
+
+    
+    
+
+    
+<script type="text/javascript" async="" src="COMP1521%2023T3%20%E2%80%94%20Week%2004%20Tutorial%20Answers_files/MathJax.js"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover, .MJXp-munder {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > *, .MJXp-munder > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+<body class="d-flex flex-column" style="min-height: 100vh;" cz-shortcut-listen="true"><div id="MathJax_Message" style="display: none;"></div>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark no-print" id="header-navbar">
+    <div class="container">
+        <a class="navbar-brand" href="http://127.0.0.1:5000/">
+            COMP1521 - 23T3
+        </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navmenu" aria-controls="navmenu" aria-label="Toggle navigation" aria-expanded="false">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="navbar-nav mr-auto">
+                
+                    
+                        <li class="nav-item active">
+                            <a class="nav-link" href="http://127.0.0.1:5000/github/">
+                                GitHub
+                            </a>
+                        </li>
+                    
+                        <li class="nav-item active">
+                            <a class="nav-link" href="http://127.0.0.1:5000/outline/">
+                                Outline
+                            </a>
+                        </li>
+                    
+                        <li class="nav-item active">
+                            <a class="nav-link" href="http://127.0.0.1:5000/timetable/">
+                                Timetable
+                            </a>
+                        </li>
+                    
+                        <li class="nav-item active">
+                            <a class="nav-link" href="http://127.0.0.1:5000/resources/forum.html">
+                                Forum
+                            </a>
+                        </li>
+                    
+                        <li class="nav-item active">
+                            <a class="nav-link" href="http://127.0.0.1:5000/student/">
+                                Submissions
+                            </a>
+                        </li>
+                    
+                        <li class="nav-item active">
+                            <a class="nav-link" href="http://127.0.0.1:5000/assignments/ass1/index.html">
+                                Assignment 1
+                            </a>
+                        </li>
+                    
+                    
+
+
+    
+        
+        
+        
+        
+    
+
+    
+        
+        
+        
+        
+    
+
+    
+        
+        
+        
+        
+    
+
+    
+        
+        
+        
+        
+    
+
+    
+        
+        
+        
+            
+        
+        
+    
+
+    
+
+    
+        
+        
+        
+            
+        
+        
+    
+
+    
+        
+        
+        
+            
+        
+        
+    
+
+    
+        
+        
+        
+            
+        
+        
+    
+
+    
+        
+        
+        
+            
+        
+        
+    
+
+
+<li class="nav-item active dropdown">
+  <a role="button" class="nav-link dropdown-toggle" id="week-selector" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Week 04 <span class="caret"></span>
+  </a>
+  <div class="dropdown-menu" aria-labelledby="week-selector">
+  
+    <a class="dropdown-item" href="http://127.0.0.1:5000/tut/01/answers">Week 01</a>
+    <a class="dropdown-item" href="http://127.0.0.1:5000/tut/02/answers">Week 02</a>
+    <a class="dropdown-item" href="http://127.0.0.1:5000/tut/03/answers">Week 03</a>
+    <a class="dropdown-item" href="http://127.0.0.1:5000/tut/04/answers">Week 04</a>
+    <a class="dropdown-item" href="http://127.0.0.1:5000/tut/05/answers">Week 05 (tutors only)</a>
+    <a class="dropdown-item" href="http://127.0.0.1:5000/tut/07/answers">Week 07 (tutors only)</a>
+    <a class="dropdown-item" href="http://127.0.0.1:5000/tut/08/answers">Week 08 (tutors only)</a>
+    <a class="dropdown-item" href="http://127.0.0.1:5000/tut/09/answers">Week 09 (tutors only)</a>
+    <a class="dropdown-item" href="http://127.0.0.1:5000/tut/10/answers">Week 10 (tutors only)</a>
+  </div>
+</li>
+
+
+
+    
+        
+        
+        
+            
+        
+        
+    
+
+    
+        
+        
+        
+            
+        
+        
+    
+
+    
+        
+        
+        
+            
+        
+        
+    
+
+
+<li class="nav-item active dropdown">
+  <a role="button" class="nav-link dropdown-toggle" id="tlb-selector" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Tutorial <span class="caret"></span>
+  </a>
+  <div class="dropdown-menu" aria-labelledby="tlb-selector">
+  
+    <a class="dropdown-item" href="http://127.0.0.1:5000/tut/04/answers">Tutorial (tutors only)</a>
+    <a class="dropdown-item" href="http://127.0.0.1:5000/lab/04/answers">Laboratory (tutors only)</a>
+    <a class="dropdown-item" href="http://127.0.0.1:5000/test/04/answers">Weekly Test (tutors only)</a>
+  </div>
+</li>
+
+
+
+    
+    
+    
+    
+
+    
+    
+    
+        
+    
+    
+
+
+    
+
+
+<li class="nav-item active dropdown">
+  <a role="button" class="nav-link dropdown-toggle" id="qa-selector" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Answers <span class="caret"></span>
+  </a>
+  <div class="dropdown-menu" aria-labelledby="qa-selector">
+  
+    <a class="dropdown-item" href="http://127.0.0.1:5000/tut/04/questions">Questions</a>
+    <a class="dropdown-item" href="http://127.0.0.1:5000/tut/04/answers">Answers (tutors only)</a>
+    <a class="dropdown-item" href="http://127.0.0.1:5000/notes/04">Tutor's Notes</a>
+  </div>
+</li>
+
+
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+<main class="container" aria-label="Content" style="flex: 1; padding-top: 4rem;">
+    
+
+        <header>
+            
+                <h1 class="text-center">
+Week 04
+Tutorial
+Answers
+</h1>
+            
+        </header>
+
+        
+
+    
+    
+    <section class="">
+    <header><h3>Objectives</h3></header>
+    
+    
+    <ul>
+        
+        <li>introducing the arithmetic needed to manipulate multi-dimensional arrays in MIPS</li>
+        
+        <li>introducing the concept of program stack frames to allow for function-call operations</li>
+        
+        <li>introduce the MIPS representation of more complex data structures like custom structs</li>
+        
+    </ul>
+    
+    
+    </section>
+    
+
+    
+        <section id="questions">
+            
+            
+
+            
+            <ol>
+                
+
+
+    
+    <li id="q1">
+        
+<p>
+Often when writing large MIPS programs, you
+will make accidental errors that cause your
+program to misbehave.
+
+</p><p>
+Discuss what tools are available to help
+debug broken MIPS code.
+
+    </p></li>
+    
+
+
+
+    
+        <aside id="q2-answer" class="answer">
+            
+<p>
+Discussed in tutorial:
+</p><ul>
+<li> mipsy-interactive (1521 mipsy)
+</li><li> mipsy-web (https://cs1521.web.cse.unsw.edu.au/mipsy/)
+</li><li> Line-by-line debugging (stepping)
+</li><li> Breakpoints
+</li><li> Printf (syscall) debugging
+
+        </li></ul></aside>
+    
+
+
+    
+    <li id="q2">
+        
+
+Translate this C program to MIPS assembler.
+
+
+<div class="highlight"><pre><span></span><span class="c1">// This program prints out a danish flag, by</span>
+<span class="c1">// looping through the rows and columns of the flag.</span>
+<span class="c1">// Each element inside the flag is a single character.</span>
+<span class="c1">// (i.e., 1 byte).</span>
+<span class="c1">//</span>
+<span class="c1">// (Dette program udskriver et dansk flag, ved at</span>
+<span class="c1">// sløjfe gennem rækker og kolonner i flaget.)</span>
+<span class="c1">//</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="cp">#define FLAG_ROWS 6</span>
+<span class="cp">#define FLAG_COLS 12</span>
+
+<span class="kt">char</span><span class="w"> </span><span class="n">flag</span><span class="p">[</span><span class="n">FLAG_ROWS</span><span class="p">][</span><span class="n">FLAG_COLS</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">{</span><span class="sc">'#'</span><span class="p">,</span><span class="w"> </span><span class="sc">'#'</span><span class="p">,</span><span class="w"> </span><span class="sc">'#'</span><span class="p">,</span><span class="w"> </span><span class="sc">'#'</span><span class="p">,</span><span class="w"> </span><span class="sc">'#'</span><span class="p">,</span><span class="w"> </span><span class="sc">'.'</span><span class="p">,</span><span class="w"> </span><span class="sc">'.'</span><span class="p">,</span><span class="w"> </span><span class="sc">'#'</span><span class="p">,</span><span class="w"> </span><span class="sc">'#'</span><span class="p">,</span><span class="w"> </span><span class="sc">'#'</span><span class="p">,</span><span class="w"> </span><span class="sc">'#'</span><span class="p">,</span><span class="w"> </span><span class="sc">'#'</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="sc">'#'</span><span class="p">,</span><span class="w"> </span><span class="sc">'#'</span><span class="p">,</span><span class="w"> </span><span class="sc">'#'</span><span class="p">,</span><span class="w"> </span><span class="sc">'#'</span><span class="p">,</span><span class="w"> </span><span class="sc">'#'</span><span class="p">,</span><span class="w"> </span><span class="sc">'.'</span><span class="p">,</span><span class="w"> </span><span class="sc">'.'</span><span class="p">,</span><span class="w"> </span><span class="sc">'#'</span><span class="p">,</span><span class="w"> </span><span class="sc">'#'</span><span class="p">,</span><span class="w"> </span><span class="sc">'#'</span><span class="p">,</span><span class="w"> </span><span class="sc">'#'</span><span class="p">,</span><span class="w"> </span><span class="sc">'#'</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="sc">'.'</span><span class="p">,</span><span class="w"> </span><span class="sc">'.'</span><span class="p">,</span><span class="w"> </span><span class="sc">'.'</span><span class="p">,</span><span class="w"> </span><span class="sc">'.'</span><span class="p">,</span><span class="w"> </span><span class="sc">'.'</span><span class="p">,</span><span class="w"> </span><span class="sc">'.'</span><span class="p">,</span><span class="w"> </span><span class="sc">'.'</span><span class="p">,</span><span class="w"> </span><span class="sc">'.'</span><span class="p">,</span><span class="w"> </span><span class="sc">'.'</span><span class="p">,</span><span class="w"> </span><span class="sc">'.'</span><span class="p">,</span><span class="w"> </span><span class="sc">'.'</span><span class="p">,</span><span class="w"> </span><span class="sc">'.'</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="sc">'.'</span><span class="p">,</span><span class="w"> </span><span class="sc">'.'</span><span class="p">,</span><span class="w"> </span><span class="sc">'.'</span><span class="p">,</span><span class="w"> </span><span class="sc">'.'</span><span class="p">,</span><span class="w"> </span><span class="sc">'.'</span><span class="p">,</span><span class="w"> </span><span class="sc">'.'</span><span class="p">,</span><span class="w"> </span><span class="sc">'.'</span><span class="p">,</span><span class="w"> </span><span class="sc">'.'</span><span class="p">,</span><span class="w"> </span><span class="sc">'.'</span><span class="p">,</span><span class="w"> </span><span class="sc">'.'</span><span class="p">,</span><span class="w"> </span><span class="sc">'.'</span><span class="p">,</span><span class="w"> </span><span class="sc">'.'</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="sc">'#'</span><span class="p">,</span><span class="w"> </span><span class="sc">'#'</span><span class="p">,</span><span class="w"> </span><span class="sc">'#'</span><span class="p">,</span><span class="w"> </span><span class="sc">'#'</span><span class="p">,</span><span class="w"> </span><span class="sc">'#'</span><span class="p">,</span><span class="w"> </span><span class="sc">'.'</span><span class="p">,</span><span class="w"> </span><span class="sc">'.'</span><span class="p">,</span><span class="w"> </span><span class="sc">'#'</span><span class="p">,</span><span class="w"> </span><span class="sc">'#'</span><span class="p">,</span><span class="w"> </span><span class="sc">'#'</span><span class="p">,</span><span class="w"> </span><span class="sc">'#'</span><span class="p">,</span><span class="w"> </span><span class="sc">'#'</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="sc">'#'</span><span class="p">,</span><span class="w"> </span><span class="sc">'#'</span><span class="p">,</span><span class="w"> </span><span class="sc">'#'</span><span class="p">,</span><span class="w"> </span><span class="sc">'#'</span><span class="p">,</span><span class="w"> </span><span class="sc">'#'</span><span class="p">,</span><span class="w"> </span><span class="sc">'.'</span><span class="p">,</span><span class="w"> </span><span class="sc">'.'</span><span class="p">,</span><span class="w"> </span><span class="sc">'#'</span><span class="p">,</span><span class="w"> </span><span class="sc">'#'</span><span class="p">,</span><span class="w"> </span><span class="sc">'#'</span><span class="p">,</span><span class="w"> </span><span class="sc">'#'</span><span class="p">,</span><span class="w"> </span><span class="sc">'#'</span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">FLAG_ROWS</span><span class="p">;</span><span class="w"> </span><span class="n">row</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">FLAG_COLS</span><span class="p">;</span><span class="w"> </span><span class="n">col</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">"%c"</span><span class="p">,</span><span class="w"> </span><span class="n">flag</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+
+    </li>
+    
+
+
+
+    
+        <aside id="q3-answer" class="answer">
+            
+
+Equivalent MIPS assembler translated directly from C:
+
+
+<div class="highlight mips"><pre><span></span><span class="c"># This program prints out a danish flag, by</span>
+<span class="c"># looping through the rows and columns of the flag.</span>
+<span class="c"># Each element inside the flag is a single character.</span>
+<span class="c"># (i.e., 1 byte).</span>
+<span class="c">#</span>
+<span class="c"># (Dette program udskriver et dansk flag, ved at</span>
+<span class="c"># sløjfe gennem rækker og kolonner i flaget.)</span>
+<span class="c">#</span>
+
+<span class="c"># Constants</span>
+FLAG_ROWS<span class="w"> </span><span class="nb">=</span><span class="w"> </span><span class="kc">6</span>
+FLAG_COLS<span class="w"> </span><span class="nb">=</span><span class="w"> </span><span class="kc">12</span>
+
+<span class="c"># Registers:</span>
+<span class="c"># - row in $t0</span>
+<span class="c"># - col in $t1</span>
+<span class="c"># - row offset in $t2</span>
+<span class="c"># - row+col offset in $t3</span>
+<span class="nf">main:</span>
+<span class="nf">main__row_loop_init:</span><span class="w">                    </span><span class="c"># for (int row = 0; row &lt; FLAG_ROWS; row++) {</span>
+<span class="w">	</span><span class="nv">li</span><span class="w">	</span><span class="kt">$t0</span><span class="nb">,</span><span class="w"> </span><span class="kc">0</span><span class="w">                  </span><span class="c"># row = 0</span>
+
+<span class="w">	</span><span class="nf">main__row_loop_body:</span><span class="w">            </span><span class="c"># while (row &lt; FLAG_ROWS)</span>
+<span class="w">	</span><span class="nv">bge</span><span class="w">	</span><span class="kt">$t0</span><span class="nb">,</span><span class="w"> </span>FLAG_ROWS<span class="nb">,</span><span class="w"> </span>main__row_loop_end
+
+<span class="w">	</span><span class="nf">main__col_loop_init:</span><span class="w">            </span><span class="c"># for (int col = 0; col &lt; FLAG_COLS; col++) {</span>
+<span class="w">	</span><span class="nv">li</span><span class="w">	</span><span class="kt">$t1</span><span class="nb">,</span><span class="w"> </span><span class="kc">0</span><span class="w">                  </span><span class="c"># col = 0;</span>
+
+<span class="w">	</span><span class="nf">main__col_loop_body:</span><span class="w">            </span><span class="c"># while (col &lt; FLAG_COLS)</span>
+<span class="w">	</span><span class="nv">bge</span><span class="w">	</span><span class="kt">$t1</span><span class="nb">,</span><span class="w"> </span>FLAG_COLS<span class="nb">,</span><span class="w"> </span>main__col_loop_end
+
+<span class="w">					</span><span class="c"># convert [row][col] to byte offset</span>
+<span class="w">	</span><span class="k">mul</span><span class="w">	</span><span class="kt">$t2</span><span class="nb">,</span><span class="w"> </span><span class="kt">$t0</span><span class="nb">,</span><span class="w"> </span>FLAG_COLS<span class="w">     </span><span class="c"># 1) row offset = rowNumber * NUM_COLUMNS</span>
+<span class="w">	</span><span class="k">add</span><span class="w">	</span><span class="kt">$t3</span><span class="nb">,</span><span class="w"> </span><span class="kt">$t2</span><span class="nb">,</span><span class="w"> </span><span class="kt">$t1</span><span class="w">           </span><span class="c"># 2) row+col offset = rowOffset + colNumber</span>
+<span class="w">					</span><span class="c"># 3) byte offset = row+col offset * sizeof(char)</span>
+<span class="w">					</span><span class="c">#    (Step 3 is skipped since sizeof(char) == 1)</span>
+<span class="w">	</span><span class="nv">la</span><span class="w">	</span><span class="kt">$t4</span><span class="nb">,</span><span class="w"> </span>flag<span class="w">               </span><span class="c"># 4) Add the base address of the flag array to the byte offset.</span>
+<span class="w">	</span><span class="k">add</span><span class="w">	</span><span class="kt">$t5</span><span class="nb">,</span><span class="w"> </span><span class="kt">$t3</span><span class="nb">,</span><span class="w"> </span><span class="kt">$t4</span><span class="w">           </span><span class="c">#    This produces the complete memory address of the flag element.</span>
+
+<span class="w">	</span><span class="k">lb</span><span class="w">	</span><span class="kt">$a0</span><span class="nb">,</span><span class="w"> </span>(<span class="kt">$t5</span>)<span class="w">              </span><span class="c"># 5) Load the byte at the byte offset into $a0</span>
+
+<span class="w">	</span><span class="nv">li</span><span class="w">	</span><span class="kt">$v0</span><span class="nb">,</span><span class="w"> </span><span class="kc">11</span><span class="w">                 </span><span class="c"># printf("%c", flag[row][col])</span>
+<span class="w">	</span><span class="k">syscall</span>
+
+<span class="w">	</span><span class="nf">main__col_loop_iter:</span>
+<span class="w">	</span><span class="k">addi</span><span class="w">	</span><span class="kt">$t1</span><span class="nb">,</span><span class="w"> </span><span class="kt">$t1</span><span class="nb">,</span><span class="w"> </span><span class="kc">1</span><span class="w">             </span><span class="c"># col++</span>
+<span class="w">	</span><span class="k">j</span><span class="w">	</span>main__col_loop_body
+
+<span class="w">	</span><span class="nf">main__col_loop_end:</span>
+<span class="w">	</span><span class="nf">main__row_loop_iter:</span>
+<span class="w">	</span><span class="nv">li</span><span class="w">	</span><span class="kt">$a0</span><span class="nb">,</span><span class="w"> </span>'\n'<span class="w">               </span><span class="c"># printf("%c", '\n')</span>
+<span class="w">	</span><span class="nv">li</span><span class="w">	</span><span class="kt">$v0</span><span class="nb">,</span><span class="w"> </span><span class="kc">11</span>
+<span class="w">	</span><span class="k">syscall</span>
+<span class="w">	</span><span class="k">addi</span><span class="w">	</span><span class="kt">$t0</span><span class="nb">,</span><span class="w"> </span><span class="kt">$t0</span><span class="nb">,</span><span class="w"> </span><span class="kc">1</span><span class="w">             </span><span class="c"># row++</span>
+<span class="w">	</span><span class="k">j</span><span class="w">	</span>main__row_loop_body
+
+<span class="w">	</span><span class="nf">main__row_loop_end:</span>
+<span class="w">					</span><span class="c"># End of the program.</span>
+<span class="w">	</span><span class="nv">li</span><span class="w">	</span><span class="kt">$v0</span><span class="nb">,</span><span class="w"> </span><span class="kc">0</span><span class="w">                  </span><span class="c"># return 0</span>
+<span class="w">	</span><span class="k">jr</span><span class="w">	</span><span class="kt">$ra</span>
+
+<span class="ni">.data</span>
+<span class="c"># This label inside the data region refers to the bytes of the flag.</span>
+<span class="c"># Note that even thought the bytes are listed on separate lines,</span>
+<span class="c"># they are actually stored as a single contiguous chunk or 'string' in memory.</span>
+<span class="nf">flag:</span>
+<span class="w">	</span><span class="ni">.byte</span><span class="w"> </span>'<span class="c">#', '#', '#', '#', '#', '.', '.', '#', '#', '#', '#', '#'</span>
+<span class="w">	</span><span class="ni">.byte</span><span class="w"> </span>'<span class="c">#', '#', '#', '#', '#', '.', '.', '#', '#', '#', '#', '#'</span>
+<span class="w">	</span><span class="ni">.byte</span><span class="w"> </span>'.'<span class="nb">,</span><span class="w"> </span>'.'<span class="nb">,</span><span class="w"> </span>'.'<span class="nb">,</span><span class="w"> </span>'.'<span class="nb">,</span><span class="w"> </span>'.'<span class="nb">,</span><span class="w"> </span>'.'<span class="nb">,</span><span class="w"> </span>'.'<span class="nb">,</span><span class="w"> </span>'.'<span class="nb">,</span><span class="w"> </span>'.'<span class="nb">,</span><span class="w"> </span>'.'<span class="nb">,</span><span class="w"> </span>'.'<span class="nb">,</span><span class="w"> </span>'.'
+<span class="w">	</span><span class="ni">.byte</span><span class="w"> </span>'.'<span class="nb">,</span><span class="w"> </span>'.'<span class="nb">,</span><span class="w"> </span>'.'<span class="nb">,</span><span class="w"> </span>'.'<span class="nb">,</span><span class="w"> </span>'.'<span class="nb">,</span><span class="w"> </span>'.'<span class="nb">,</span><span class="w"> </span>'.'<span class="nb">,</span><span class="w"> </span>'.'<span class="nb">,</span><span class="w"> </span>'.'<span class="nb">,</span><span class="w"> </span>'.'<span class="nb">,</span><span class="w"> </span>'.'<span class="nb">,</span><span class="w"> </span>'.'
+<span class="w">	</span><span class="ni">.byte</span><span class="w"> </span>'<span class="c">#', '#', '#', '#', '#', '.', '.', '#', '#', '#', '#', '#'</span>
+<span class="w">	</span><span class="ni">.byte</span><span class="w"> </span>'<span class="c">#', '#', '#', '#', '#', '.', '.', '#', '#', '#', '#', '#'</span>
+</pre></div>
+
+
+
+        </aside>
+    
+
+
+    
+    <li id="q3">
+        
+
+Translate this C program to MIPS assembler.
+
+
+<div class="highlight"><pre><span></span><span class="c1">// C function to find the largest element in an array, recursively.</span>
+<span class="c1">// Returns the value of the largest element in the array.</span>
+<span class="c1">// </span>
+<span class="c1">// array:  Array to search</span>
+<span class="c1">// length: Number of elements in the array</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">array</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">length</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// </span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">first_element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">length</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Handle the base-case of the recursion, at the end of the array.</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">first_element</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Recurse on the rest of the array.</span>
+<span class="w">        </span><span class="c1">// Finds the largest element after first_element in the array.</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">max_so_far</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Compare this element with the largest element after it in the array.</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">first_element</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">max_so_far</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">max_so_far</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">first_element</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">max_so_far</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+
+    </li>
+    
+
+
+
+    
+        <aside id="q4-answer" class="answer">
+            
+
+
+Equivalent MIPS assembler translated directly from C:
+
+
+<div class="highlight mips"><pre><span></span><span class="c"># Recursive maximum of array function</span>
+
+<span class="w">	</span><span class="c"># Register usage:</span>
+<span class="w">	</span><span class="c"># - `array' is in $a0 (only before function call)</span>
+<span class="w">	</span><span class="c"># - `length' is in $a1 (only before function call)</span>
+<span class="w">	</span><span class="c"># - `first_element' is in $s0</span>
+<span class="w">	</span><span class="c"># - `max_so_far' is in $t0 (only after function call)</span>
+
+<span class="w">	</span><span class="c"># $0 used for first_element because it needs</span>
+<span class="w">	</span><span class="c"># to keep its value across recursive call</span>
+<span class="nf">max:</span>
+<span class="nf">max__prologue:</span>
+<span class="w">	</span>begin
+<span class="w">	</span>push<span class="w">	</span><span class="kt">$ra</span>
+<span class="w">	</span>push<span class="w">	</span><span class="kt">$s0</span><span class="w">			</span><span class="c"># push $s0 to the stack to save its original value</span>
+
+<span class="nf">max__body:</span>
+<span class="w">	</span><span class="k">lw</span><span class="w">	</span><span class="kt">$s0</span><span class="nb">,</span><span class="w"> </span>(<span class="kt">$a0</span>)<span class="w">		</span><span class="c"># load the value of array[0] into $s0</span>
+
+<span class="w">	</span><span class="k">bne</span><span class="w">	</span><span class="kt">$a1</span><span class="nb">,</span><span class="w"> </span><span class="kc">1</span><span class="nb">,</span><span class="w"> </span>max__length_gt_1<span class="w">	</span><span class="c"># if (length != 1), go to the recursive case</span>
+
+<span class="nf">max__base_case:</span><span class="w">				</span><span class="c"># base case of recursion</span>
+<span class="w">	</span><span class="nv">move</span><span class="w">    </span><span class="kt">$v0</span><span class="nb">,</span><span class="w"> </span><span class="kt">$s0</span><span class="w">		</span><span class="c"># return first_element</span>
+<span class="w">	</span><span class="nv">b</span><span class="w">	</span>max__epilogue
+
+<span class="nf">max__length_gt_1:</span><span class="w">			</span><span class="c"># recursive case</span>
+<span class="w">	</span><span class="k">addi</span><span class="w">	</span><span class="kt">$a0</span><span class="nb">,</span><span class="w"> </span><span class="kt">$a0</span><span class="nb">,</span><span class="w"> </span><span class="kc">4</span><span class="w">		</span><span class="c"># Get the address of array[1] by adding 4 to array</span>
+<span class="w">					</span><span class="c"># Works because each element is 4 bytes in size</span>
+<span class="w">	</span><span class="k">addi</span><span class="w">	</span><span class="kt">$a1</span><span class="nb">,</span><span class="w"> </span><span class="kt">$a1</span><span class="nb">,</span><span class="w"> </span><span class="kc">-1</span><span class="w">		</span><span class="c"># length = length - 1;</span>
+<span class="w">	</span><span class="k">jal</span><span class="w">	</span>max<span class="w">			</span><span class="c"># recursive call:</span>
+<span class="w">	</span><span class="nv">move</span><span class="w">	</span><span class="kt">$t0</span><span class="nb">,</span><span class="w"> </span><span class="kt">$v0</span><span class="w">		</span><span class="c"># max_so_far = max(&amp;array[1], length - 1);</span>
+
+<span class="w">	</span><span class="nv">ble</span><span class="w">	</span><span class="kt">$s0</span><span class="nb">,</span><span class="w"> </span><span class="kt">$t0</span><span class="nb">,</span><span class="w"> </span>max__ret_max_so_far<span class="w">	</span><span class="c"># if (first_element &lt;= max_so_far), goto max__ret_max_so_far</span>
+<span class="w">	</span><span class="nv">move</span><span class="w">	</span><span class="kt">$t0</span><span class="nb">,</span><span class="w"> </span><span class="kt">$s0</span><span class="w">			</span><span class="c"># max_so_far = first_element</span>
+
+<span class="nf">max__ret_max_so_far:</span>
+<span class="w">	</span><span class="nv">move</span><span class="w">	</span><span class="kt">$v0</span><span class="nb">,</span><span class="w"> </span><span class="kt">$t0</span><span class="w">		</span><span class="c"># return value is max_so_far</span>
+
+<span class="nf">max__epilogue:</span>
+<span class="w">	</span>pop<span class="w">	</span><span class="kt">$s0</span><span class="w">			</span><span class="c"># pop $s0 from the stack</span>
+<span class="w">	</span>pop<span class="w">	</span><span class="kt">$ra</span><span class="w">			</span><span class="c"># pop $ra from the stack</span>
+<span class="w">	</span>end
+
+<span class="w">	</span><span class="k">jr</span><span class="w">	</span><span class="kt">$ra</span><span class="w">			</span><span class="c"># return;</span>
+
+
+<span class="w">	</span><span class="c"># some simple test code which calls max</span>
+<span class="nf">main:</span>
+<span class="nf">main__prologue:</span>
+<span class="w">	</span>push<span class="w">	</span><span class="kt">$ra</span>
+
+<span class="nf">main__body:</span>
+<span class="w">	</span><span class="nv">la</span><span class="w">	</span><span class="kt">$a0</span><span class="nb">,</span><span class="w"> </span>array
+<span class="w">	</span><span class="nv">li</span><span class="w">	</span><span class="kt">$a1</span><span class="nb">,</span><span class="w"> </span><span class="kc">10</span>
+<span class="w">	</span><span class="k">jal</span><span class="w">	</span>max<span class="w">			</span><span class="c"># result = max(array, 10)</span>
+
+<span class="w">	</span><span class="nv">move</span><span class="w">	</span><span class="kt">$a0</span><span class="nb">,</span><span class="w"> </span><span class="kt">$v0</span>
+<span class="w">	</span><span class="nv">li</span><span class="w">	</span><span class="kt">$v0</span><span class="nb">,</span><span class="w"> </span><span class="kc">1</span><span class="w">			</span><span class="c"># syscall 1: print_int</span>
+<span class="w">	</span><span class="k">syscall</span><span class="w">				</span><span class="c"># printf("%d", result)</span>
+
+<span class="w">	</span><span class="nv">li</span><span class="w">	</span><span class="kt">$a0</span><span class="nb">,</span><span class="w"> </span>'\n'
+<span class="w">	</span><span class="nv">li</span><span class="w">	</span><span class="kt">$v0</span><span class="nb">,</span><span class="w"> </span><span class="kc">11</span><span class="w">			</span><span class="c"># syscall 11: print_char</span>
+<span class="w">	</span><span class="k">syscall</span><span class="w">				</span><span class="c"># printf("%c", '\n');</span>
+
+<span class="w">	</span><span class="nv">li</span><span class="w">	</span><span class="kt">$v0</span><span class="nb">,</span><span class="w"> </span><span class="kc">0</span>
+
+<span class="nf">main__epilogue:</span>
+<span class="w">	</span>pop<span class="w">	</span><span class="kt">$ra</span>
+<span class="w">	</span><span class="k">jr</span><span class="w">	</span><span class="kt">$ra</span><span class="w">			</span><span class="c"># return 0;</span>
+
+
+<span class="ni">.data</span>
+<span class="nf">array:</span>
+<span class="w">	</span><span class="ni">.word</span><span class="w"> </span><span class="kc">1</span><span class="nb">,</span><span class="w"> </span><span class="kc">2</span><span class="nb">,</span><span class="w"> </span><span class="kc">3</span><span class="nb">,</span><span class="w"> </span><span class="kc">4</span><span class="nb">,</span><span class="w"> </span><span class="kc">5</span><span class="nb">,</span><span class="w"> </span><span class="kc">6</span><span class="nb">,</span><span class="w"> </span><span class="kc">4</span><span class="nb">,</span><span class="w"> </span><span class="kc">3</span><span class="nb">,</span><span class="w"> </span><span class="kc">2</span><span class="nb">,</span><span class="w"> </span><span class="kc">1</span>
+</pre></div>
+
+
+
+Alternative more complex solution using a frame pointer
+
+
+<div class="highlight mips"><pre><span></span><span class="c"># MIPS function to find the largest element in an array, recursively.</span>
+<span class="c"># Returns the value of the largest element in the array.</span>
+
+<span class="c"># version with a frame pointer</span>
+
+<span class="c"># Register usage:</span>
+<span class="c"># - `a' is in $s0</span>
+<span class="c"># - `length' is in $a1</span>
+<span class="c"># - `a[0]' is in $s1</span>
+<span class="c"># - `max_so_far' is in $t0</span>
+
+<span class="nf">max:</span>
+<span class="w">        </span><span class="c"># prologue</span>
+<span class="w">        </span>begin<span class="w">                   </span><span class="c"># move frame pointer</span>
+<span class="w">        </span>push<span class="w">    </span><span class="kt">$ra</span><span class="w">             </span><span class="c"># push $ra to the stack</span>
+<span class="w">        </span>push<span class="w">    </span><span class="kt">$s0</span><span class="w">             </span><span class="c"># push $s0 to the stack</span>
+<span class="w">        </span>push<span class="w">    </span><span class="kt">$s1</span><span class="w">             </span><span class="c"># push $s1 to the stack</span>
+
+<span class="w">        </span><span class="c"># old-style alternative to the above without mipsy pseudoinstructions</span>
+<span class="w">        </span><span class="c"># sw    $fp, -4($sp)</span>
+<span class="w">        </span><span class="c"># la    $fp, -4($sp)</span>
+<span class="w">        </span><span class="c"># sw    $ra, -8($sp)</span>
+<span class="w">        </span><span class="c"># sw    $s0, -12($sp)</span>
+<span class="w">        </span><span class="c"># sw    $s1, -16($sp)</span>
+<span class="w">        </span><span class="c"># sw    $s2, -20($sp)</span>
+<span class="w">        </span><span class="c"># addi  $sp, $sp, -24</span>
+
+<span class="w">        </span><span class="c"># function body</span>
+<span class="w">        </span><span class="k">lw</span><span class="w">      </span><span class="kt">$s1</span><span class="nb">,</span><span class="w"> </span>(<span class="kt">$a0</span>)<span class="w">              </span><span class="c"># load the value of a[0]</span>
+
+<span class="nf">max_base_case:</span><span class="w">                          </span><span class="c"># base case of recursion</span>
+<span class="w">        </span><span class="nv">li</span><span class="w">      </span><span class="kt">$t0</span><span class="nb">,</span><span class="w"> </span><span class="kc">1</span>
+<span class="w">        </span><span class="nv">bgt</span><span class="w">     </span><span class="kt">$a1</span><span class="nb">,</span><span class="w"> </span><span class="kt">$t0</span><span class="nb">,</span><span class="w"> </span>max_rec_case<span class="w">  </span><span class="c"># if (length &gt; 1), go to the recursive case</span>
+<span class="w">        </span><span class="k">lw</span><span class="w">      </span><span class="kt">$v0</span><span class="nb">,</span><span class="w"> </span>(<span class="kt">$a0</span>)<span class="w">              </span><span class="c"># load a[0] to return</span>
+<span class="w">        </span><span class="k">j</span><span class="w">       </span>max_return<span class="w">              </span><span class="c"># return a[0]</span>
+
+<span class="nf">max_rec_case:</span><span class="w">                           </span><span class="c"># recursive case</span>
+<span class="w">    </span>
+<span class="w">        </span><span class="k">addi</span><span class="w">    </span><span class="kt">$a0</span><span class="nb">,</span><span class="w"> </span><span class="kt">$a0</span><span class="nb">,</span><span class="w"> </span><span class="kc">4</span><span class="w">             </span><span class="c"># Get the address of a[1] by adding 4 to &amp;a[0]</span>
+<span class="w">                                        </span><span class="c"># Works because each element is 4 bytes in size</span>
+<span class="w">        </span><span class="k">addi</span><span class="w">    </span><span class="kt">$a1</span><span class="nb">,</span><span class="w"> </span><span class="kt">$a1</span><span class="nb">,</span><span class="w"> </span><span class="kc">-1</span><span class="w">            </span><span class="c"># int length = length - 1;</span>
+<span class="w">        </span><span class="k">jal</span><span class="w">     </span>max<span class="w">                     </span><span class="c"># recursive call: </span>
+<span class="w">        </span><span class="nv">move</span><span class="w">    </span><span class="kt">$t0</span><span class="nb">,</span><span class="w"> </span><span class="kt">$v0</span><span class="w">                </span><span class="c"># max_so_far = max(&amp;a[1], length-1);</span>
+
+<span class="w">        </span><span class="nv">ble</span><span class="w">     </span><span class="kt">$s1</span><span class="nb">,</span><span class="w"> </span><span class="kt">$t0</span><span class="nb">,</span><span class="w"> </span>max_else<span class="w">      </span><span class="c"># if (a[0] &lt; max_so_far), go to else</span>
+<span class="w">        </span><span class="nv">move</span><span class="w">    </span><span class="kt">$v0</span><span class="nb">,</span><span class="w"> </span><span class="kt">$s1</span><span class="w">                </span><span class="c"># otherwise return max_so_far</span>
+<span class="w">        </span><span class="k">j</span><span class="w">       </span>max_return
+
+<span class="nf">max_else:</span>
+<span class="w">        </span><span class="nv">move</span><span class="w">    </span><span class="kt">$v0</span><span class="nb">,</span><span class="w"> </span><span class="kt">$t0</span><span class="w">                </span><span class="c"># return a[0] instead</span>
+
+<span class="nf">max_return:</span>
+<span class="w">        </span><span class="c"># epilogue</span>
+<span class="w">        </span>pop<span class="w">    </span><span class="kt">$s1</span><span class="w">              </span><span class="c"># pop $s1 from the stack</span>
+<span class="w">        </span>pop<span class="w">    </span><span class="kt">$s0</span><span class="w">              </span><span class="c"># pop $s0 from the stack</span>
+<span class="w">        </span>pop<span class="w">    </span><span class="kt">$ra</span><span class="w">              </span><span class="c"># pop $ra from the stack</span>
+<span class="w">        </span>end<span class="w">                     </span><span class="c"># move frame pointer back</span>
+<span class="w">        </span><span class="k">jr</span><span class="w">    </span><span class="kt">$ra</span>
+
+<span class="w">        </span><span class="c"># Old-style alternative without mipsy pseudoinstructions</span>
+<span class="w">        </span><span class="c"># lw    $s2, -16($fp)</span>
+<span class="w">        </span><span class="c"># lw    $s1, -12($fp)</span>
+<span class="w">        </span><span class="c"># lw    $s0, -8($fp)</span>
+<span class="w">        </span><span class="c"># lw    $ra, -4($fp)</span>
+<span class="w">        </span><span class="c"># la    $sp, 4($fp)</span>
+<span class="w">        </span><span class="c"># lw    $fp, ($fp)</span>
+<span class="w">        </span><span class="c"># jr    $ra</span>
+
+
+<span class="c"># some test code which calls max</span>
+<span class="nf">main:</span>
+<span class="w">        </span><span class="k">addi</span><span class="w">    </span><span class="kt">$sp</span><span class="nb">,</span><span class="w"> </span><span class="kt">$sp</span><span class="nb">,</span><span class="w"> </span><span class="kc">-4</span><span class="w">    </span><span class="c"># create stack frame</span>
+<span class="w">        </span><span class="k">sw</span><span class="w">      </span><span class="kt">$ra</span><span class="nb">,</span><span class="w"> </span><span class="kc">0</span>(<span class="kt">$sp</span>)<span class="w">     </span><span class="c"># save return address</span>
+
+<span class="w">        </span><span class="nv">la</span><span class="w">      </span><span class="kt">$a0</span><span class="nb">,</span><span class="w"> </span>array
+<span class="w">        </span><span class="nv">li</span><span class="w">      </span><span class="kt">$a1</span><span class="nb">,</span><span class="w"> </span><span class="kc">10</span>
+<span class="w">        </span><span class="k">jal</span><span class="w">     </span>max<span class="w">             </span><span class="c"># call max(array, 10)</span>
+
+<span class="w">        </span><span class="nv">move</span><span class="w">    </span><span class="kt">$a0</span><span class="nb">,</span><span class="w"> </span><span class="kt">$v0</span><span class="w">        </span><span class="c"># printf ("%d")</span>
+<span class="w">        </span><span class="nv">li</span><span class="w">      </span><span class="kt">$v0</span><span class="nb">,</span><span class="w"> </span><span class="kc">1</span>
+<span class="w">        </span><span class="k">syscall</span>
+
+<span class="w">        </span><span class="nv">li</span><span class="w">      </span><span class="kt">$a0</span><span class="nb">,</span><span class="w"> </span>'\n'<span class="w">       </span><span class="c"># printf("%c", '\n');</span>
+<span class="w">        </span><span class="nv">li</span><span class="w">      </span><span class="kt">$v0</span><span class="nb">,</span><span class="w"> </span><span class="kc">11</span>
+<span class="w">        </span><span class="k">syscall</span>
+
+<span class="w">                                </span><span class="c"># clean up stack frame</span>
+<span class="w">        </span><span class="k">lw</span><span class="w">      </span><span class="kt">$ra</span><span class="nb">,</span><span class="w"> </span><span class="kc">0</span>(<span class="kt">$sp</span>)<span class="w">     </span><span class="c"># restore $ra</span>
+<span class="w">        </span><span class="k">addi</span><span class="w">    </span><span class="kt">$sp</span><span class="nb">,</span><span class="w"> </span><span class="kt">$sp</span><span class="nb">,</span><span class="w"> </span><span class="kc">4</span><span class="w">     </span><span class="c"># restore sp</span>
+
+<span class="w">        </span><span class="nv">li</span><span class="w">      </span><span class="kt">$v0</span><span class="nb">,</span><span class="w"> </span><span class="kc">0</span><span class="w">          </span><span class="c"># return 0</span>
+<span class="w">        </span><span class="k">jr</span><span class="w">      </span><span class="kt">$ra</span>
+
+
+<span class="ni">.data</span>
+<span class="nf">array:</span>
+<span class="w">        </span><span class="ni">.word</span><span class="w"> </span><span class="kc">1</span><span class="nb">,</span><span class="w"> </span><span class="kc">2</span><span class="nb">,</span><span class="w"> </span><span class="kc">3</span><span class="nb">,</span><span class="w"> </span><span class="kc">4</span><span class="nb">,</span><span class="w"> </span><span class="kc">5</span><span class="nb">,</span><span class="w"> </span><span class="kc">6</span><span class="nb">,</span><span class="w"> </span><span class="kc">4</span><span class="nb">,</span><span class="w"> </span><span class="kc">3</span><span class="nb">,</span><span class="w"> </span><span class="kc">2</span><span class="nb">,</span><span class="w"> </span><span class="kc">1</span>
+</pre></div>
+
+
+
+
+        </aside>
+    
+
+
+    
+    <li id="q4">
+        
+<p>
+Consider the following operation that
+multiplies all of the elements in a matrix
+by a constant factor:
+
+</p><figure class="text-center">
+<img class="img img-fluid p-4" src="COMP1521%2023T3%20%E2%80%94%20Week%2004%20Tutorial%20Answers_files/matrix-change.png">
+</figure>
+
+<p>
+This operation could be rendered in C99-standard C as
+
+
+</p><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * C function to multiply a matrix by a scalar.</span>
+<span class="cm"> * </span>
+<span class="cm"> * nrows:  Number of rows in the matrix</span>
+<span class="cm"> * ncols:  Number of columns in the matrix</span>
+<span class="cm"> * M:      Matrix M</span>
+<span class="cm"> * factor: Scalar factor to multiply by</span>
+<span class="cm"> */</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">change</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">nrows</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ncols</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">M</span><span class="p">[</span><span class="n">nrows</span><span class="p">][</span><span class="n">ncols</span><span class="p">],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">factor</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nrows</span><span class="p">;</span><span class="w"> </span><span class="n">row</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ncols</span><span class="p">;</span><span class="w"> </span><span class="n">col</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">M</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">factor</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">M</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">];</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>
+Write a function in MIPS assembly
+equivalent to the above C code.
+Assume that the arguments are placed in
+the <code>$a?</code> registers
+in the order given in the function definition.
+<abbr>e.g.</abbr>, the function
+could be called as follows in MIPS:
+
+</p><div class="highlight"><pre><span></span><span class="w">   </span><span class="nf">li</span><span class="w">   </span><span class="no">$a0</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">   </span><span class="nf">li</span><span class="w">   </span><span class="no">$a1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span>
+<span class="w">   </span><span class="nf">la</span><span class="w">   </span><span class="no">$a2</span><span class="p">,</span><span class="w"> </span><span class="no">M</span>
+<span class="w">   </span><span class="nf">li</span><span class="w">   </span><span class="no">$a3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">   </span><span class="nf">jal</span><span class="w">  </span><span class="no">change</span>
+</pre></div>
+
+
+<p>
+Where <code>M</code> is defined as:
+
+</p><div class="highlight"><pre><span></span><span class="w">    </span><span class="na">.data</span>
+<span class="nl">M:</span><span class="w">  </span><span class="na">.word</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span>
+<span class="w">    </span><span class="na">.word</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span>
+<span class="w">    </span><span class="na">.word</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span>
+</pre></div>
+
+
+
+    
+        <aside id="q4-answer" class="answer">
+            
+
+
+<div class="highlight mips"><pre><span></span><span class="c"># MIPS function to multiply a matrix by a scalar.</span>
+<span class="c"># </span>
+<span class="c"># Used:         [$s0, $s1, $t0, $t1, $t4]</span>
+<span class="c"># Clobbered:    [$t0, $t1, $t4]</span>
+<span class="c"># Stack:        [$s0, $s1]</span>
+<span class="c"># </span>
+<span class="c"># Arguments:</span>
+<span class="c"># $a0 - nrows:  Number of rows in the matrix</span>
+<span class="c"># $a1 - ncols:  Number of columns in the matrix</span>
+<span class="c"># $a2 - M:      Matrix M</span>
+<span class="c"># $a3 - factor: Scalar factor to multiply by</span>
+<span class="c"># </span>
+<span class="c"># Registers:</span>
+<span class="c"># $t0 - t0:     Array offset calculations</span>
+<span class="c"># $t1 - M[][]:  Value at an index in the matrix</span>
+<span class="nf">change:</span>
+<span class="w">        </span><span class="c"># params:        nrows is $a0, ncols is $a1, &amp;M is $a2, factor is $a3</span>
+<span class="w">        </span><span class="c"># registers: row is $s0, col is $s1</span>
+
+<span class="w">        </span><span class="c"># set up stack frame</span>
+<span class="w">        </span>begin<span class="w">                           </span><span class="c"># move frame pointer</span>
+<span class="w">        </span>push<span class="w">    </span><span class="kt">$ra</span>
+<span class="w">        </span>push<span class="w">    </span><span class="kt">$s0</span><span class="w">                     </span><span class="c"># save row and col registers so we can use them</span>
+<span class="w">        </span>push<span class="w">    </span><span class="kt">$s1</span>
+
+<span class="w">        </span><span class="c"># Alternative method to begin/push:</span>
+<span class="w">        </span><span class="c"># sw    $fp, -4($sp)</span>
+<span class="w">        </span><span class="c"># la    $fp, -4($sp)</span>
+<span class="w">        </span><span class="c"># sw    $ra, -4($fp)</span>
+<span class="w">        </span><span class="c"># sw    $s0, -8($fp)</span>
+<span class="w">        </span><span class="c"># sw    $s1, -12($fp)</span>
+<span class="w">        </span><span class="c"># addi  $sp, $sp, -16</span>
+
+<span class="w">        </span><span class="nv">li</span><span class="w">      </span><span class="kt">$t4</span><span class="nb">,</span><span class="w"> </span><span class="kc">4</span><span class="w">                  </span><span class="c"># sizeof(int), saved for later</span>
+<span class="w">        </span><span class="nv">li</span><span class="w">      </span><span class="kt">$s0</span><span class="nb">,</span><span class="w"> </span><span class="kc">0</span><span class="w">                  </span><span class="c"># row = 0</span>
+
+<span class="nf">change_row_loop:</span><span class="w">                        </span><span class="c"># for (int row = 0; row &lt; nrows; row++)</span>
+<span class="w">        </span><span class="nv">bge</span><span class="w">     </span><span class="kt">$s0</span><span class="nb">,</span><span class="w"> </span><span class="kt">$a0</span><span class="nb">,</span><span class="w"> </span>change_row_loop_end
+
+<span class="w">        </span><span class="nv">li</span><span class="w">      </span><span class="kt">$s1</span><span class="nb">,</span><span class="w"> </span><span class="kc">0</span><span class="w">                  </span><span class="c"># col = 0</span>
+<span class="nf">change_col_loop:</span><span class="w">                        </span><span class="c"># for (int col = 0; col &lt; ncols; col++)</span>
+<span class="w">        </span><span class="nv">bge</span><span class="w">     </span><span class="kt">$s1</span><span class="nb">,</span><span class="w"> </span><span class="kt">$a1</span><span class="nb">,</span><span class="w"> </span>change_col_loop_end
+
+<span class="w">        </span><span class="c"># get &amp;M[row][col]</span>
+<span class="w">        </span><span class="k">mul</span><span class="w">     </span><span class="kt">$t0</span><span class="nb">,</span><span class="w"> </span><span class="kt">$s0</span><span class="nb">,</span><span class="w"> </span><span class="kt">$a1</span><span class="w">           </span><span class="c"># row offset = row * ncols</span>
+<span class="w">        </span><span class="k">add</span><span class="w">     </span><span class="kt">$t0</span><span class="nb">,</span><span class="w"> </span><span class="kt">$t0</span><span class="nb">,</span><span class="w"> </span><span class="kt">$s1</span><span class="w">           </span><span class="c"># row+col offset = row * ncols + col</span>
+<span class="w">        </span><span class="k">mul</span><span class="w">     </span><span class="kt">$t0</span><span class="nb">,</span><span class="w"> </span><span class="kt">$t0</span><span class="nb">,</span><span class="w"> </span><span class="kt">$t4</span><span class="w">           </span><span class="c"># offset in bytes = row * ncols + col * sizeof(int)</span>
+<span class="w">        </span><span class="k">add</span><span class="w">     </span><span class="kt">$t0</span><span class="nb">,</span><span class="w"> </span><span class="kt">$t0</span><span class="nb">,</span><span class="w"> </span><span class="kt">$a2</span><span class="w">           </span><span class="c"># base address of M + offset in bytes = &amp;M[row][col]</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="k">lw</span><span class="w">      </span><span class="kt">$t1</span><span class="nb">,</span><span class="w"> </span>(<span class="kt">$t0</span>)<span class="w">              </span><span class="c"># M[row][col]</span>
+<span class="w">        </span><span class="k">mul</span><span class="w">     </span><span class="kt">$t1</span><span class="nb">,</span><span class="w"> </span><span class="kt">$t1</span><span class="nb">,</span><span class="w"> </span><span class="kt">$a3</span>
+<span class="w">        </span><span class="k">sw</span><span class="w">      </span><span class="kt">$t1</span><span class="nb">,</span><span class="w"> </span>(<span class="kt">$t0</span>)<span class="w">              </span><span class="c"># M[row][col] = factor * M[row][col]</span>
+
+<span class="w">        </span><span class="k">addi</span><span class="w">    </span><span class="kt">$s1</span><span class="nb">,</span><span class="w"> </span><span class="kt">$s1</span><span class="nb">,</span><span class="w"> </span><span class="kc">1</span><span class="w">             </span><span class="c"># col++</span>
+<span class="w">        </span><span class="k">j</span><span class="w">       </span>change_col_loop<span class="w">         </span><span class="c"># goto change_col_loop</span>
+
+<span class="nf">change_col_loop_end:</span>
+<span class="w">        </span><span class="k">addi</span><span class="w">    </span><span class="kt">$s0</span><span class="nb">,</span><span class="w"> </span><span class="kt">$s0</span><span class="nb">,</span><span class="w"> </span><span class="kc">1</span><span class="w">             </span><span class="c"># row++</span>
+<span class="w">        </span><span class="k">j</span><span class="w">       </span>change_row_loop<span class="w">         </span><span class="c"># goto change_row_loop</span>
+
+<span class="nf">change_row_loop_end:</span>
+
+<span class="w">        </span><span class="c"># clean up stack frame and restore registers</span>
+<span class="w">        </span><span class="c"># Must be in the reverse order to the `push`-es!</span>
+<span class="w">        </span>pop<span class="w">     </span><span class="kt">$s1</span><span class="w">                     </span><span class="c"># pop from the stack into $s1</span>
+<span class="w">        </span>pop<span class="w">     </span><span class="kt">$s0</span><span class="w">                     </span><span class="c"># pop from the stack into $s0</span>
+<span class="w">        </span>pop<span class="w">     </span><span class="kt">$ra</span><span class="w">                     </span><span class="c"># pop from the stack into $ra</span>
+<span class="w">        </span>end<span class="w">                             </span><span class="c"># move frame pointer back</span>
+
+<span class="w">        </span><span class="c"># Alternative method to clean up:</span>
+<span class="w">        </span><span class="c"># lw    $ra, -4($fp)</span>
+<span class="w">        </span><span class="c"># lw    $s0, -8($fp)</span>
+<span class="w">        </span><span class="c"># lw    $s1, -12($fp)</span>
+<span class="w">        </span><span class="c"># la    $sp, 4($fp)</span>
+<span class="w">        </span><span class="c"># lw    $fp, ($fp)</span>
+
+<span class="w">        </span><span class="k">jr</span><span class="w">      </span><span class="kt">$ra</span><span class="w">                     </span><span class="c"># return</span>
+</pre></div>
+
+
+
+        </aside>
+    
+
+
+    </li>
+    
+
+
+    
+    <li id="q5">
+        
+
+Translate this C program to MIPS assembler using
+normal function calling conventions.
+<p>
+<code>sum2</code> is a very simple function but don't rely on this when implementing <code>sum4</code>.
+
+
+</p><div class="highlight"><pre><span></span><span class="c1">// sum 4 numbers using function calls</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">sum4</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">d</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">sum2</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">);</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sum4</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">sum4</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">d</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">res1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sum2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">res2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sum2</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sum2</span><span class="w"> </span><span class="p">(</span><span class="n">res1</span><span class="p">,</span><span class="w"> </span><span class="n">res2</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">sum2</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+
+    </li>
+    
+
+
+
+    
+        <aside id="q6-answer" class="answer">
+            
+
+Equivalent MIPS assembler translated directly from C:
+
+
+<div class="highlight mips"><pre><span></span><span class="c"># Sum 4 numbers using function calls.</span>
+<span class="c"># Note the use of the stack to save $ra in main, </span>
+<span class="c"># and $ra $a0, $a1, $s0 in sum2.</span>
+<span class="c"># For simplicity we are not using a frame pointer</span>
+<span class="c"># Only push/pop are needed for this.</span>
+
+<span class="nf">main:</span>
+<span class="w">        </span>push<span class="w">    </span><span class="kt">$ra</span><span class="w">             </span><span class="c"># move stack pointer down to make room</span>
+<span class="w">                                </span><span class="c"># save $ra on $stack</span>
+<span class="w">                                </span>
+
+<span class="w">        </span><span class="nv">li</span><span class="w">      </span><span class="kt">$a0</span><span class="nb">,</span><span class="w"> </span><span class="kc">11</span><span class="w">         </span><span class="c"># sum4(11, 13, 17, 19)</span>
+<span class="w">        </span><span class="nv">li</span><span class="w">      </span><span class="kt">$a1</span><span class="nb">,</span><span class="w"> </span><span class="kc">13</span>
+<span class="w">        </span><span class="nv">li</span><span class="w">      </span><span class="kt">$a2</span><span class="nb">,</span><span class="w"> </span><span class="kc">17</span>
+<span class="w">        </span><span class="nv">li</span><span class="w">      </span><span class="kt">$a3</span><span class="nb">,</span><span class="w"> </span><span class="kc">19</span>
+<span class="w">        </span><span class="k">jal</span><span class="w">     </span>sum4
+
+<span class="w">        </span><span class="nv">move</span><span class="w">    </span><span class="kt">$a0</span><span class="nb">,</span><span class="w"> </span><span class="kt">$v0</span><span class="w">        </span><span class="c"># printf("%d", z);</span>
+<span class="w">        </span><span class="nv">li</span><span class="w">      </span><span class="kt">$v0</span><span class="nb">,</span><span class="w"> </span><span class="kc">1</span>
+<span class="w">        </span><span class="k">syscall</span>
+
+<span class="w">        </span><span class="nv">li</span><span class="w">      </span><span class="kt">$a0</span><span class="nb">,</span><span class="w"> </span>'\n'<span class="w">       </span><span class="c"># printf("%c", '\n');</span>
+<span class="w">        </span><span class="nv">li</span><span class="w">      </span><span class="kt">$v0</span><span class="nb">,</span><span class="w"> </span><span class="kc">11</span>
+<span class="w">        </span><span class="k">syscall</span>
+
+<span class="w">        </span>pop<span class="w">     </span><span class="kt">$ra</span><span class="w">             </span><span class="c"># recover $ra from $stack</span>
+<span class="w">                                </span><span class="c"># move stack pointer back up to what it was when main called</span>
+<span class="w">                                </span><span class="c"># equivalent to `pop $ra`</span>
+
+<span class="w">        </span><span class="nv">li</span><span class="w">      </span><span class="kt">$v0</span><span class="nb">,</span><span class="w"> </span><span class="kc">0</span><span class="w">          </span><span class="c"># return 0 from function main</span>
+<span class="w">        </span><span class="k">jr</span><span class="w">      </span><span class="kt">$ra</span><span class="w">             </span><span class="c"># return from function main</span>
+
+
+<span class="c">#</span>
+<span class="c"># We use $s0 for 'e' because its value must survive a function call to sum4. </span>
+<span class="c"># So by convention we must store $s0's original value on the stack, and then</span>
+<span class="c"># we can restore it before sum4 returns.</span>
+<span class="c">#</span>
+<span class="c"># Note sum2 is simple function which changes only $v0.</span>
+<span class="c"># We could simplify sum4 by relying on this, </span>
+<span class="c"># but in general we don't do this.</span>
+<span class="c"># We assume only registers $s0..$s7 survive function calls</span>
+<span class="c">#</span>
+
+<span class="c"># Registers:</span>
+<span class="c"># a,b,c,d are in $a0,$a1,$a2,$a3</span>
+<span class="c"># res1 is in $s0, res2 is in $v0</span>
+<span class="c"># c and d are in $s2,$s3 to be preserved across calls</span>
+<span class="c"># Final return is in $v0</span>
+<span class="nf">sum4:</span>
+<span class="w">                                </span><span class="c"># Prologue:</span>
+<span class="w">                                </span><span class="c"># move stack pointer down to make room</span>
+<span class="w">        </span>push<span class="w">    </span><span class="kt">$ra</span><span class="w">             </span><span class="c"># save $ra on $stack</span>
+<span class="w">        </span>push<span class="w">    </span><span class="kt">$s0</span><span class="w">             </span><span class="c"># save $s0 on $stack</span>
+<span class="w">        </span>push<span class="w">    </span><span class="kt">$s2</span><span class="w">             </span><span class="c"># save $s2 on $stack</span>
+<span class="w">        </span>push<span class="w">    </span><span class="kt">$s3</span><span class="w">             </span><span class="c"># save $s3 on $stack</span>
+<span class="w">                                </span><span class="c"># We need to get the order out right as well!</span>
+
+<span class="nf">sum4__body:</span>
+<span class="w">        </span><span class="nv">move</span><span class="w">    </span><span class="kt">$s2</span><span class="nb">,</span><span class="w"> </span><span class="kt">$a2</span><span class="w">        </span><span class="c"># save $a2 in $s2</span>
+<span class="w">        </span><span class="nv">move</span><span class="w">    </span><span class="kt">$s3</span><span class="nb">,</span><span class="w"> </span><span class="kt">$a3</span><span class="w">        </span><span class="c"># save $a3 in $s3</span>
+
+<span class="w">        </span><span class="k">jal</span><span class="w">     </span>sum2<span class="w">            </span><span class="c"># sum2(a, b)</span>
+<span class="w">        </span><span class="nv">move</span><span class="w">    </span><span class="kt">$s0</span><span class="nb">,</span><span class="w"> </span><span class="kt">$v0</span><span class="w">        </span><span class="c"># move result to $s0 to save it for later</span>
+
+<span class="w">                                </span><span class="c"># Move the preserved values back into the $a registers</span>
+<span class="w">        </span><span class="nv">move</span><span class="w">    </span><span class="kt">$s2</span><span class="nb">,</span><span class="w"> </span><span class="kt">$a0</span><span class="w">        </span><span class="c"># restore $a2 from $s2</span>
+<span class="w">        </span><span class="nv">move</span><span class="w">    </span><span class="kt">$s3</span><span class="nb">,</span><span class="w"> </span><span class="kt">$a1</span><span class="w">        </span><span class="c"># restore $a3 from $s3</span>
+
+<span class="w">        </span><span class="k">jal</span><span class="w">     </span>sum2<span class="w">            </span><span class="c"># sum2(c, d);</span>
+
+<span class="w">        </span><span class="nv">move</span><span class="w">    </span><span class="kt">$a0</span><span class="nb">,</span><span class="w"> </span><span class="kt">$s0</span><span class="w">        </span><span class="c"># Sum the first and second results</span>
+<span class="w">        </span><span class="nv">move</span><span class="w">    </span><span class="kt">$a1</span><span class="nb">,</span><span class="w"> </span><span class="kt">$v0</span>
+<span class="w">        </span><span class="k">jal</span><span class="w">     </span>sum2<span class="w">            </span><span class="c"># sum2(res1, res2)</span>
+
+<span class="w">        </span><span class="k">lw</span><span class="w">      </span><span class="kt">$ra</span><span class="nb">,</span><span class="w"> </span><span class="kc">12</span>(<span class="kt">$sp</span>)<span class="w">    </span><span class="c"># restore $ra from $stack</span>
+<span class="w">        </span><span class="k">lw</span><span class="w">      </span><span class="kt">$s0</span><span class="nb">,</span><span class="w"> </span><span class="kc">8</span>(<span class="kt">$sp</span>)<span class="w">     </span><span class="c"># restore $s0 on $stack</span>
+<span class="w">        </span><span class="k">addi</span><span class="w">    </span><span class="kt">$sp</span><span class="nb">,</span><span class="w"> </span><span class="kt">$sp</span><span class="nb">,</span><span class="w"> </span><span class="kc">16</span><span class="w">    </span><span class="c"># move stack pointer back up to what it was when sum4 called</span>
+
+<span class="nf">sum4__epilogue:</span>
+<span class="w">        </span>pop<span class="w">     </span><span class="kt">$s3</span><span class="w">             </span><span class="c"># pop from the stack into $s3</span>
+<span class="w">        </span>pop<span class="w">     </span><span class="kt">$s2</span><span class="w">             </span><span class="c"># pop from the stack into $s2</span>
+<span class="w">        </span>pop<span class="w">     </span><span class="kt">$s0</span><span class="w">             </span><span class="c"># pop from the stack into $s0</span>
+<span class="w">        </span>pop<span class="w">     </span><span class="kt">$ra</span><span class="w">             </span><span class="c"># pop from the stack into $ra</span>
+
+<span class="w">        </span><span class="k">jr</span><span class="w">      </span><span class="kt">$ra</span><span class="w">             </span><span class="c"># return from sum_product</span>
+
+
+
+<span class="nf">sum2:</span><span class="w">                           </span><span class="c"># sum2 doesn't call other functions,</span>
+<span class="w">                                </span><span class="c"># so it doesn't need to save any registers.</span>
+<span class="w">        </span><span class="k">add</span><span class="w">     </span><span class="kt">$v0</span><span class="nb">,</span><span class="w"> </span><span class="kt">$a0</span><span class="nb">,</span><span class="w"> </span><span class="kt">$a1</span><span class="w">   </span><span class="c"># return argument + argument 2</span>
+<span class="w">        </span><span class="k">jr</span><span class="w">      </span><span class="kt">$ra</span><span class="w">             </span><span class="c">#</span>
+</pre></div>
+
+
+
+        </aside>
+    
+
+
+    
+    <li id="q6">
+        
+<p>
+Consider the following 3-d array structure:
+
+</p><figure class="text-center">
+<img class="img img-fluid p-4" src="COMP1521%2023T3%20%E2%80%94%20Week%2004%20Tutorial%20Answers_files/cube.png">
+</figure>
+
+<p>
+The cube could be implemented as an array of pointers,
+each of which points to a slice of the cube.
+Each slice of the cube is also
+an array of pointers,
+and each of those points to
+an array of <code>int</code> values.
+
+</p><p>
+For example, in the diagram above,
+the cell labelled <code>x</code>
+can be accessed as <code>cube[0][0][1]</code>,
+and the cell labelled <code>y</code>
+can be accessed as <code>cube[0][2][3]</code>.
+
+</p><ol type="a">
+<li>
+Write MIPS assembler directives
+to define a data structure like this.
+
+</li><li>
+Write MIPS assembler code
+to scan this cube,
+and count the number of elements
+which are zero.
+</li></ol>
+
+<p>
+In other words, implement the following C code in MIPS.
+
+</p><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">cube</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">4</span><span class="p">][</span><span class="mi">4</span><span class="p">];</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">nzeroes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="n">x</span><span class="o">++</span><span class="p">)</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="n">y</span><span class="o">++</span><span class="p">)</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="n">z</span><span class="o">++</span><span class="p">)</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cube</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">][</span><span class="n">z</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">                </span><span class="n">nzeroes</span><span class="o">++</span><span class="p">;</span>
+</pre></div>
+
+
+
+    
+        <aside id="q6-answer" class="answer">
+            
+<div class="highlight"><pre><span></span><span class="c1"># possible definition for the data structure</span>
+<span class="w">        </span><span class="na">.data</span>
+<span class="nl">row01:</span><span class="w">  </span><span class="na">.space</span><span class="w"> </span><span class="mi">16</span>
+<span class="nl">row02:</span><span class="w">  </span><span class="na">.space</span><span class="w"> </span><span class="mi">16</span>
+<span class="nl">row03:</span><span class="w">  </span><span class="na">.space</span><span class="w"> </span><span class="mi">16</span>
+<span class="nl">row04:</span><span class="w">  </span><span class="na">.space</span><span class="w"> </span><span class="mi">16</span>
+<span class="c1"># etc. etc. (with 4 rows for every slice, each able to contain 4 ints, making a 4x4x4 cube)</span>
+
+<span class="c1"># Note that all these values here are actually pointers to the data structure</span>
+<span class="nl">slice0:</span><span class="w"> </span><span class="na">.word</span><span class="w"> </span><span class="no">row01</span><span class="p">,</span><span class="w"> </span><span class="no">row02</span><span class="p">,</span><span class="w"> </span><span class="no">row03</span><span class="p">,</span><span class="w"> </span><span class="no">row04</span>
+<span class="nl">slice1:</span><span class="w"> </span><span class="na">.word</span><span class="w"> </span><span class="no">row11</span><span class="p">,</span><span class="w"> </span><span class="no">row12</span><span class="p">,</span><span class="w"> </span><span class="no">row13</span><span class="p">,</span><span class="w"> </span><span class="no">row14</span>
+<span class="nl">slice2:</span><span class="w"> </span><span class="na">.word</span><span class="w"> </span><span class="no">row21</span><span class="p">,</span><span class="w"> </span><span class="no">row22</span><span class="p">,</span><span class="w"> </span><span class="no">row23</span><span class="p">,</span><span class="w"> </span><span class="no">row24</span>
+<span class="nl">slice3:</span><span class="w"> </span><span class="na">.word</span><span class="w"> </span><span class="no">row31</span><span class="p">,</span><span class="w"> </span><span class="no">row32</span><span class="p">,</span><span class="w"> </span><span class="no">row33</span><span class="p">,</span><span class="w"> </span><span class="no">row34</span>
+
+<span class="nl">cube:</span><span class="w">   </span><span class="na">.word</span><span class="w"> </span><span class="no">slice0</span><span class="p">,</span><span class="w"> </span><span class="no">slice1</span><span class="p">,</span><span class="w"> </span><span class="no">slice2</span><span class="p">,</span><span class="w"> </span><span class="no">slice3</span>
+
+<span class="c1"># assume that ...</span>
+<span class="c1">#   $s0 represents nzeroes</span>
+<span class="c1">#   $s1 is x, $s2 is y, $s3 is z</span>
+<span class="c1">#   $s4 holds the dimension (4)</span>
+<span class="w">        </span><span class="nf">li</span><span class="w">   </span><span class="no">$s0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w">             </span><span class="c1"># number of zeroes</span>
+<span class="w">        </span><span class="nf">li</span><span class="w">   </span><span class="no">$s4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w">             </span><span class="c1"># dimension of the cube, and also the size of each element</span>
+
+<span class="w">        </span><span class="nf">li</span><span class="w">   </span><span class="no">$s1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+<span class="nl">loop_x:</span><span class="w">                            </span><span class="c1"># loop over x-axis</span>
+<span class="w">        </span><span class="nf">beq</span><span class="w">  </span><span class="no">$s1</span><span class="p">,</span><span class="w"> </span><span class="no">$s4</span><span class="p">,</span><span class="w"> </span><span class="no">end_loop_x</span><span class="w">  </span><span class="c1"># while x &lt; 4</span>
+
+<span class="w">        </span><span class="nf">li</span><span class="w">   </span><span class="no">$s2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+<span class="nl">loop_y:</span><span class="w">                            </span><span class="c1"># loop over y-axis</span>
+<span class="w">        </span><span class="nf">beq</span><span class="w">  </span><span class="no">$s2</span><span class="p">,</span><span class="w"> </span><span class="no">$s4</span><span class="p">,</span><span class="w"> </span><span class="no">end_loop_y</span><span class="w">  </span><span class="c1"># while y &lt; 4</span>
+
+<span class="w">        </span><span class="nf">li</span><span class="w">   </span><span class="no">$s3</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+<span class="nl">loop_z:</span><span class="w">                            </span><span class="c1"># loop over z-axis</span>
+<span class="w">        </span><span class="nf">beq</span><span class="w">  </span><span class="no">$s3</span><span class="p">,</span><span class="w"> </span><span class="no">$s4</span><span class="p">,</span><span class="w"> </span><span class="no">end_loop_z</span><span class="w">  </span><span class="c1"># while z &lt; 4</span>
+
+<span class="w">        </span><span class="nf">move</span><span class="w"> </span><span class="no">$t0</span><span class="p">,</span><span class="w"> </span><span class="no">$s1</span>
+<span class="w">        </span><span class="nf">mul</span><span class="w">  </span><span class="no">$t0</span><span class="p">,</span><span class="w"> </span><span class="no">$t0</span><span class="p">,</span><span class="w"> </span><span class="no">$s4</span><span class="w">      </span><span class="c1"># offset = x * sizeof(pointer)</span>
+<span class="w">        </span><span class="nf">lw</span><span class="w">   </span><span class="no">$t0</span><span class="p">,</span><span class="w"> </span><span class="no">cube</span><span class="p">(</span><span class="no">$t0</span><span class="p">)</span><span class="w">     </span><span class="c1"># load the pointer to the slice, i.e. address of cube[x]</span>
+
+<span class="w">        </span><span class="nf">move</span><span class="w"> </span><span class="no">$t1</span><span class="p">,</span><span class="w"> </span><span class="no">$s2</span>
+<span class="w">        </span><span class="nf">mul</span><span class="w">  </span><span class="no">$t1</span><span class="p">,</span><span class="w"> </span><span class="no">$t1</span><span class="p">,</span><span class="w"> </span><span class="no">$s4</span><span class="w">      </span><span class="c1"># offset = y * sizeof(pointer)</span>
+<span class="w">        </span><span class="nf">add</span><span class="w">  </span><span class="no">$t0</span><span class="p">,</span><span class="w"> </span><span class="no">$t0</span><span class="p">,</span><span class="w"> </span><span class="no">$t1</span><span class="w">      </span><span class="c1"># memory address = sliceN + y * sizeof(pointer)</span>
+<span class="w">        </span><span class="nf">lw</span><span class="w">   </span><span class="no">$t0</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="no">$t0</span><span class="p">)</span><span class="w">         </span><span class="c1"># load the pointer to the row, i.e. address of cube[x][y]</span>
+
+<span class="w">        </span><span class="nf">move</span><span class="w"> </span><span class="no">$t1</span><span class="p">,</span><span class="w"> </span><span class="no">$s3</span>
+<span class="w">        </span><span class="nf">mul</span><span class="w">  </span><span class="no">$t1</span><span class="p">,</span><span class="w"> </span><span class="no">$s3</span><span class="p">,</span><span class="w"> </span><span class="no">$s4</span><span class="w">      </span><span class="c1"># offset = z * sizeof(pointer)</span>
+<span class="w">        </span><span class="nf">add</span><span class="w">  </span><span class="no">$t0</span><span class="p">,</span><span class="w"> </span><span class="no">$t0</span><span class="p">,</span><span class="w"> </span><span class="no">$t1</span><span class="w">      </span><span class="c1"># memory address = rowN + z * sizeof(pointer)</span>
+<span class="w">        </span><span class="nf">lw</span><span class="w">   </span><span class="no">$t0</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="no">$t0</span><span class="p">)</span><span class="w">         </span><span class="c1"># load the element at cube[x][y][z]</span>
+
+<span class="w">        </span><span class="nf">bne</span><span class="w">  </span><span class="no">$t0</span><span class="p">,</span><span class="w"> </span><span class="no">$0</span><span class="p">,</span><span class="w"> </span><span class="no">skip</span><span class="w">      </span><span class="c1"># if t0 is non-zero, skip and do not increment nzeroes</span>
+<span class="w">        </span><span class="nf">addi</span><span class="w"> </span><span class="no">$s0</span><span class="p">,</span><span class="w"> </span><span class="no">$s0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+<span class="nl">skip_nonzero:</span>
+<span class="w">        </span><span class="nf">addi</span><span class="w"> </span><span class="no">$s3</span><span class="p">,</span><span class="w"> </span><span class="no">$s3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w">        </span><span class="c1"># increment z</span>
+<span class="w">        </span><span class="nf">j</span><span class="w">    </span><span class="no">loop_z</span>
+
+<span class="nl">end_loop_z:</span>
+<span class="w">        </span><span class="nf">addi</span><span class="w"> </span><span class="no">$s2</span><span class="p">,</span><span class="w"> </span><span class="no">$s2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w">        </span><span class="c1"># increment y</span>
+<span class="w">        </span><span class="nf">j</span><span class="w">    </span><span class="no">loop_y</span>
+
+<span class="nl">end_loop_y:</span>
+<span class="w">        </span><span class="nf">addi</span><span class="w"> </span><span class="no">$s1</span><span class="p">,</span><span class="w"> </span><span class="no">$s1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w">        </span><span class="c1"># increment x</span>
+<span class="w">        </span><span class="nf">j</span><span class="w">    </span><span class="no">loop1</span>
+
+<span class="nl">end_loop_x:</span>
+<span class="na">...</span>
+</pre></div>
+
+
+        </aside>
+    
+
+
+    </li>
+    
+
+
+    
+    <li id="q7">
+        
+<p>
+For each of the following <code>struct</code> definitions,
+what are the likely offset values for each field,
+and the total size of the <code>struct</code>:
+
+</p><ol type="a">
+<li>
+<div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">_coord</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+
+
+</li><li>
+<div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">_node</span><span class="w"> </span><span class="n">Node</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">_node</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="n">next</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+
+
+</li><li>
+<div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">_enrolment</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">stu_id</span><span class="p">;</span><span class="w">         </span><span class="c1">// e.g. 5012345</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">course</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span><span class="o">:</span><span class="w">     </span><span class="c1">// e.g. "COMP1521"</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">term</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span><span class="w">       </span><span class="c1">// e.g. "17s2"</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">grade</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span><span class="w">      </span><span class="c1">// e.g. "HD"</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">mark</span><span class="p">;</span><span class="w">        </span><span class="c1">// e.g. 87.3</span>
+<span class="p">};</span>
+</pre></div>
+
+
+</li><li>
+<div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">_queue</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">nitems</span><span class="p">;</span><span class="w">     </span><span class="c1">// # items currently in queue</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">head</span><span class="p">;</span><span class="w">       </span><span class="c1">// index of oldest item added</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">tail</span><span class="p">;</span><span class="w">       </span><span class="c1">// index of most recent item added</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">maxitems</span><span class="p">;</span><span class="w">   </span><span class="c1">// size of array</span>
+<span class="w">    </span><span class="n">Item</span><span class="w"> </span><span class="o">*</span><span class="n">items</span><span class="p">;</span><span class="w">    </span><span class="c1">// malloc'd array of Items</span>
+<span class="p">};</span>
+</pre></div>
+
+
+</li></ol>
+<p>
+Both the offsets and sizes should be in units of number of bytes.
+
+
+    
+        </p><aside id="q7-answer" class="answer">
+            
+<ol type="a">
+<li><p>
+<code>x</code> is the first field, so has offset 0.
+Since <code>x</code> is 8 bytes long,
+<code>y</code> will have offset 8.
+The <code>struct</code> holds two 8-byte fields,
+both of which are correctly aligned,
+so no padding is required,
+and so the overall size of the <code>struct</code> is 16 bytes.
+
+</p></li><li><p>
+<code>value</code> is the first field, so has offset 0.
+Since <code>value</code> is 4 bytes long,
+<code>next</code> will have offset 4.
+Since pointers are also 4 bytes long,
+and no padding is required,
+the overall size of the <code>struct</code> is 8 bytes.
+
+</p></li><li><p>
+<code>stu_id</code> is the first field, so has offset 0.
+Since <code>stu_id</code> is 4 bytes long,
+<code>course</code> has offset 4.
+<code>course</code> is 9 bytes long,
+but since the following field
+only needs byte alignment,
+<code>term</code> has offset 13.
+Similarly, <code>grade</code> has offset 18.
+The <code>mark</code> field requires word alignment,
+and so it needs some padding
+to move the offset from 21 to 24.
+Taking into account that
+<code>double</code> values are stored in 8 bytes,
+the overall size of the <code>struct</code> is 32 bytes.
+
+</p></li><li><p>
+<code>nitems</code> is the first field, so has offset 0.
+<code>head</code> has offset 4,
+<code>tail</code> has offset 8,
+<code>maxitems</code> has offset 12,
+and <code>items</code> has offset 16.
+It doesn't matter what the size of an <code>Item</code> is,
+or how any <code>Item</code>s there are,
+since they are stored outside the <code>struct</code>.
+Since the pointer is 4 bytes long,
+and all the values are word-aligned,
+the overall size of the <code>struct</code> is 20 bytes.
+
+</p></li></ol>
+
+        </aside>
+    
+
+
+    </li>
+    
+
+
+    
+    <li id="q8">
+        
+<p>
+<b>Topographic Maps</b> are a common way to represent terrain of various kinds, 
+by providing a representation of the height of the terrain at various points.
+This C code provides a (heavily simplified) representation of how one might
+read a topographic map, and so find the height of the terrain at a given point.
+
+
+</p><div class="highlight"><pre><span></span><span class="c1">// A topographic map!</span>
+<span class="c1">// This helpful tool will tell explorers how much they need to climb to</span>
+<span class="c1">// reach various points of interest.</span>
+<span class="c1">// Given an array of points, `my_points`, it can look up individual cells</span>
+<span class="c1">// in the 2D map and print their height.</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="cp">#define MAP_SIZE 5</span>
+<span class="cp">#define N_POINTS 4</span>
+
+<span class="c1">// 2D representation of a point, stored as a single struct</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">point2D</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">row</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">col</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="k">typedef</span><span class="w"> </span><span class="n">point2D_t</span><span class="p">;</span>
+
+<span class="c1">// 2D grid representing the height data for an area.</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">topography_grid</span><span class="p">[</span><span class="n">MAP_SIZE</span><span class="p">][</span><span class="n">MAP_SIZE</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">},</span>
+<span class="p">};</span>
+
+<span class="c1">// Points of interest to print heights for, as a 1D array.</span>
+<span class="n">point2D_t</span><span class="w"> </span><span class="n">my_points</span><span class="p">[</span><span class="n">N_POINTS</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">},</span>
+<span class="p">};</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Loop over all elements, and print their data</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N_POINTS</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">my_points</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">row</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">my_points</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">col</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">topography_grid</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">];</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"Height at %d,%d=%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">row</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>
+When translating <code>struct</code>s, it is useful to consider where each value inside the
+struct will be stored in memory, and how many it will need in total. 
+Hint: <code>sizeof()</code> may help here.
+
+</p><div class="highlight"><pre><span></span><span class="c1">// The point2D_t struct is a 2D representation of a point, stored as a single struct thus:</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">point2D</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">row</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">col</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="k">typedef</span><span class="w"> </span><span class="n">point2D_t</span><span class="p">;</span>
+</pre></div>
+
+
+<p>
+Complete the provided MIPS assembly below to make it equivalent to the C code above.
+Take care when calculating the addresses of the elements of the array, and 
+when calculating the address of the height result.
+
+
+</p><div class="highlight mips"><pre><span></span><span class="c"># A topographic map!</span>
+<span class="c"># This helpful tool will tell explorers how much they need to climb to</span>
+<span class="c"># reach various points of interest.</span>
+<span class="c">#</span>
+<span class="c"># Given an array of points, `my_points`, it can look up individual cells</span>
+<span class="c"># in the 2D map and print their height.</span>
+
+<span class="c"># Constants</span>
+MAP_SIZE<span class="w"> </span><span class="nb">=</span><span class="w"> </span><span class="kc">5</span>
+N_POINTS<span class="w"> </span><span class="nb">=</span><span class="w"> </span><span class="kc">4</span>
+
+<span class="ni">.text</span>
+
+<span class="nf">main:</span>
+<span class="w">	</span><span class="c"># Registers:</span>
+<span class="w">	</span><span class="c">#   - $t0: int i, the loop counter</span>
+<span class="w">	</span><span class="c">#   - $t1: row of the current point</span>
+<span class="w">	</span><span class="c">#   - $t2: col of the current point</span>
+<span class="w">	</span><span class="c">#   - $t3: height of the current point</span>
+<span class="w">	</span><span class="c">#   - $t4: temporary result for array indexing</span>
+<span class="w">	</span><span class="c">#   - $t5: temporary result for array indexing</span>
+
+<span class="w">					</span><span class="c"># Loop over all elements, and print their data</span>
+<span class="nf">points_loop_init:</span><span class="w">			</span><span class="c"># for (int i = 0; i &lt; N_POINTS; i++) {</span>
+<span class="w">	</span><span class="nv">li</span><span class="w">	</span><span class="kt">$t0</span><span class="nb">,</span><span class="w"> </span><span class="kc">0</span><span class="w">			</span><span class="c"># $t0 = 0</span>
+
+<span class="nf">points_loop_cond:</span>
+<span class="w">	</span><span class="nv">bge</span><span class="w">	</span><span class="kt">$t0</span><span class="nb">,</span><span class="w"> </span>N_POINTS<span class="nb">,</span><span class="w"> </span>points_loop_end<span class="w">	</span><span class="c"># if (i &gt;= N_POINTS)</span>
+
+<span class="w">					</span><span class="c"># TODO: Complete these three!</span>
+<span class="w">					</span><span class="c"># int row = my_points[i].row;</span>
+<span class="w">					</span><span class="c"># int col = my_points[i].col;</span>
+<span class="w">					</span><span class="c"># int height = topography_grid[row][col];</span>
+
+<span class="w">					</span><span class="c"># printf("Height at %d,%d=%d\n", row, col, height);</span>
+
+<span class="w">	</span><span class="nv">li</span><span class="w">	</span><span class="kt">$v0</span><span class="nb">,</span><span class="w"> </span><span class="kc">4</span><span class="w">			</span><span class="c"># $v0 = 4 (print string)</span>
+<span class="w">	</span><span class="nv">la</span><span class="w">	</span><span class="kt">$a0</span><span class="nb">,</span><span class="w"> </span>height_str<span class="w">		</span><span class="c"># load address of height_str into $a0</span>
+<span class="w">	</span><span class="k">syscall</span><span class="w">				</span><span class="c"># print height_str</span>
+
+<span class="w">	</span><span class="nv">li</span><span class="w">	</span><span class="kt">$v0</span><span class="nb">,</span><span class="w"> </span><span class="kc">1</span><span class="w">			</span><span class="c"># $v0 = 1 (print int)</span>
+<span class="w">	</span><span class="nv">move</span><span class="w">	</span><span class="kt">$a0</span><span class="nb">,</span><span class="w"> </span><span class="kt">$t1</span><span class="w">		</span><span class="c"># $a0 = row</span>
+<span class="w">	</span><span class="k">syscall</span><span class="w">				</span><span class="c"># print row</span>
+
+<span class="w">	</span><span class="nv">li</span><span class="w">	</span><span class="kt">$v0</span><span class="nb">,</span><span class="w"> </span><span class="kc">11</span><span class="w">			</span><span class="c"># $v0 = 11 (print ASCII character)</span>
+<span class="w">	</span><span class="nv">li</span><span class="w">	</span><span class="kt">$a0</span><span class="nb">,</span><span class="w"> </span>'<span class="nb">,</span>'<span class="w">		</span><span class="c"># $a0 = ','</span>
+<span class="w">	</span><span class="k">syscall</span><span class="w">				</span><span class="c"># print ','</span>
+
+<span class="w">	</span><span class="nv">li</span><span class="w">	</span><span class="kt">$v0</span><span class="nb">,</span><span class="w"> </span><span class="kc">1</span><span class="w">			</span><span class="c"># $v0 = 1 (print int)</span>
+<span class="w">	</span><span class="nv">move</span><span class="w">	</span><span class="kt">$a0</span><span class="nb">,</span><span class="w"> </span><span class="kt">$t2</span><span class="w">		</span><span class="c"># $a0 = col</span>
+<span class="w">	</span><span class="k">syscall</span><span class="w">				</span><span class="c"># print col</span>
+
+<span class="w">	</span><span class="nv">li</span><span class="w">	</span><span class="kt">$v0</span><span class="nb">,</span><span class="w"> </span><span class="kc">11</span><span class="w">			</span><span class="c"># $v0 = 11 (print ASCII character)</span>
+<span class="w">	</span><span class="nv">li</span><span class="w">	</span><span class="kt">$a0</span><span class="nb">,</span><span class="w"> </span>'<span class="nb">=</span>'<span class="w">		</span><span class="c"># $a0 = '='</span>
+<span class="w">	</span><span class="k">syscall</span><span class="w">				</span><span class="c"># print '='</span>
+
+<span class="w">	</span><span class="nv">li</span><span class="w">	</span><span class="kt">$v0</span><span class="nb">,</span><span class="w"> </span><span class="kc">1</span><span class="w">			</span><span class="c"># $v0 = 1 (print int)</span>
+<span class="w">	</span><span class="nv">move</span><span class="w">	</span><span class="kt">$a0</span><span class="nb">,</span><span class="w"> </span><span class="kt">$t3</span><span class="w">		</span><span class="c"># $a0 = height</span>
+<span class="w">	</span><span class="k">syscall</span><span class="w">				</span><span class="c"># print height</span>
+
+<span class="w">	</span><span class="nv">li</span><span class="w">	</span><span class="kt">$v0</span><span class="nb">,</span><span class="w"> </span><span class="kc">11</span><span class="w">			</span><span class="c"># $v0 = 11 (print ASCII character)</span>
+<span class="w">	</span><span class="nv">li</span><span class="w">	</span><span class="kt">$a0</span><span class="nb">,</span><span class="w"> </span>'\n'<span class="w">		</span><span class="c"># $a0 = '\n'</span>
+<span class="w">	</span><span class="k">syscall</span><span class="w">				</span><span class="c"># print '\n'</span>
+
+<span class="nf">points_loop_iter:</span>
+<span class="w">	</span><span class="k">addi</span><span class="w">	</span><span class="kt">$t0</span><span class="nb">,</span><span class="w"> </span><span class="kt">$t0</span><span class="nb">,</span><span class="w"> </span><span class="kc">1</span><span class="w">		</span><span class="c"># i++</span>
+<span class="w">	</span><span class="nv">b</span><span class="w">	</span>points_loop_cond<span class="w">	</span><span class="c"># branch to points_loop_cond</span>
+
+<span class="nf">points_loop_end:</span>
+
+<span class="w">	</span><span class="k">jr</span><span class="w">	</span><span class="kt">$ra</span><span class="w">			</span><span class="c"># return 0;</span>
+
+<span class="ni">.data</span>
+
+<span class="c"># 2D grid representing the height data for an area.</span>
+<span class="nf">topography_grid:</span>
+<span class="w">	</span><span class="ni">.word</span><span class="w">	</span><span class="kc">0</span><span class="nb">,</span><span class="w"> </span><span class="kc">1</span><span class="nb">,</span><span class="w"> </span><span class="kc">1</span><span class="nb">,</span><span class="w"> </span><span class="kc">2</span><span class="nb">,</span><span class="w"> </span><span class="kc">3</span>
+<span class="w">	</span><span class="ni">.word</span><span class="w">	</span><span class="kc">1</span><span class="nb">,</span><span class="w"> </span><span class="kc">1</span><span class="nb">,</span><span class="w"> </span><span class="kc">2</span><span class="nb">,</span><span class="w"> </span><span class="kc">3</span><span class="nb">,</span><span class="w"> </span><span class="kc">4</span>
+<span class="w">	</span><span class="ni">.word</span><span class="w">	</span><span class="kc">1</span><span class="nb">,</span><span class="w"> </span><span class="kc">2</span><span class="nb">,</span><span class="w"> </span><span class="kc">3</span><span class="nb">,</span><span class="w"> </span><span class="kc">5</span><span class="nb">,</span><span class="w"> </span><span class="kc">7</span>
+<span class="w">	</span><span class="ni">.word</span><span class="w">	</span><span class="kc">3</span><span class="nb">,</span><span class="w"> </span><span class="kc">3</span><span class="nb">,</span><span class="w"> </span><span class="kc">4</span><span class="nb">,</span><span class="w"> </span><span class="kc">5</span><span class="nb">,</span><span class="w"> </span><span class="kc">6</span>
+<span class="w">	</span><span class="ni">.word</span><span class="w">	</span><span class="kc">3</span><span class="nb">,</span><span class="w"> </span><span class="kc">4</span><span class="nb">,</span><span class="w"> </span><span class="kc">5</span><span class="nb">,</span><span class="w"> </span><span class="kc">6</span><span class="nb">,</span><span class="w"> </span><span class="kc">7</span>
+
+<span class="c"># Points of interest to print heights for, as a 1D array of point2D_t structs.</span>
+<span class="c"># Note the memory layout of this array: each element requires 8 bytes, not 4.</span>
+<span class="nf">my_points:</span>
+<span class="w">	</span><span class="ni">.word</span><span class="w">	</span><span class="kc">1</span><span class="nb">,</span><span class="w"> </span><span class="kc">2</span>
+<span class="w">	</span><span class="ni">.word</span><span class="w">	</span><span class="kc">2</span><span class="nb">,</span><span class="w"> </span><span class="kc">3</span>
+<span class="w">	</span><span class="ni">.word</span><span class="w">	</span><span class="kc">0</span><span class="nb">,</span><span class="w"> </span><span class="kc">0</span>
+<span class="w">	</span><span class="ni">.word</span><span class="w">	</span><span class="kc">4</span><span class="nb">,</span><span class="w"> </span><span class="kc">4</span>
+
+<span class="nf">height_str:</span><span class="w"> </span><span class="ni">.asciiz</span><span class="w"> </span><span class="s">"Height at "</span>
+</pre></div>
+
+
+
+    
+        <aside id="q8-answer" class="answer">
+            
+
+
+<div class="highlight mips"><pre><span></span><span class="c"># A topographic map!</span>
+<span class="c"># This helpful tool will tell explorers how much they need to climb to</span>
+<span class="c"># reach various points of interest.</span>
+<span class="c">#</span>
+<span class="c"># Given an array of points, `my_points`, it can look up individual cells</span>
+<span class="c"># in the 2D map and print their height.</span>
+
+<span class="c"># Constants</span>
+MAP_SIZE<span class="w"> </span><span class="nb">=</span><span class="w"> </span><span class="kc">5</span>
+N_POINTS<span class="w"> </span><span class="nb">=</span><span class="w"> </span><span class="kc">4</span>
+
+<span class="c"># Number of bytes of offset within the point2D struct, and its size in bytes</span>
+<span class="c"># Note that these can be really nice ways to simplify your calculations :)</span>
+ROW_OFFSET<span class="w"> </span><span class="nb">=</span><span class="w"> </span><span class="kc">0</span>
+COL_OFFSET<span class="w"> </span><span class="nb">=</span><span class="w"> </span><span class="kc">4</span>
+POINT2D_SZ<span class="w"> </span><span class="nb">=</span><span class="w"> </span><span class="kc">8</span>
+
+<span class="ni">.text</span>
+
+<span class="nf">main:</span>
+<span class="w">	</span><span class="c"># Registers:</span>
+<span class="w">	</span><span class="c">#   - $t0: int i, the loop counter</span>
+<span class="w">	</span><span class="c">#   - $t1: row of the current point</span>
+<span class="w">	</span><span class="c">#   - $t2: col of the current point</span>
+<span class="w">	</span><span class="c">#   - $t3: height of the current point</span>
+<span class="w">	</span><span class="c">#   - $t4: temporary result for array indexing</span>
+<span class="w">	</span><span class="c">#   - $t5: temporary result for array indexing</span>
+
+<span class="w">					</span><span class="c"># Loop over all elements, and print their data</span>
+<span class="nf">points_loop_init:</span><span class="w">			</span><span class="c"># for (int i = 0; i &lt; N_POINTS; i++) {</span>
+<span class="w">	</span><span class="nv">li</span><span class="w">	</span><span class="kt">$t0</span><span class="nb">,</span><span class="w"> </span><span class="kc">0</span><span class="w">			</span><span class="c"># $t0 = 0</span>
+
+<span class="nf">points_loop_cond:</span>
+<span class="w">	</span><span class="nv">bge</span><span class="w">	</span><span class="kt">$t0</span><span class="nb">,</span><span class="w"> </span>N_POINTS<span class="nb">,</span><span class="w"> </span>points_loop_end<span class="w">	</span><span class="c"># if (i &gt;= N_POINTS)</span>
+
+<span class="w">					</span><span class="c"># Find address of my_points[i]</span>
+<span class="w">	</span><span class="k">mul</span><span class="w">	</span><span class="kt">$t4</span><span class="nb">,</span><span class="w"> </span><span class="kt">$t0</span><span class="nb">,</span><span class="w"> </span>POINT2D_SZ<span class="w">	</span><span class="c"># $t4 = i * 8</span>
+<span class="w">	</span><span class="nv">la</span><span class="w">	</span><span class="kt">$t5</span><span class="nb">,</span><span class="w"> </span>my_points<span class="w">		</span><span class="c"># $t5 = &amp;my_points</span>
+<span class="w">	</span><span class="k">add</span><span class="w">	</span><span class="kt">$t5</span><span class="nb">,</span><span class="w"> </span><span class="kt">$t5</span><span class="nb">,</span><span class="w"> </span><span class="kt">$t4</span><span class="w">		</span><span class="c"># $t5 = &amp;my_points[i]</span>
+
+<span class="w">					</span><span class="c"># Load row and col</span>
+<span class="w">	</span><span class="k">lw</span><span class="w">	</span><span class="kt">$t1</span><span class="nb">,</span><span class="w"> </span>ROW_OFFSET(<span class="kt">$t5</span>)<span class="w">	</span><span class="c"># $t1 = my_points[i].row</span>
+<span class="w">	</span><span class="k">lw</span><span class="w">	</span><span class="kt">$t2</span><span class="nb">,</span><span class="w"> </span>COL_OFFSET(<span class="kt">$t5</span>)<span class="w">	</span><span class="c"># $t2 = my_points[i].col</span>
+
+<span class="w">	</span><span class="c"># Note that we needed the offset field above, so we had to add the array's base address</span>
+<span class="w">	</span><span class="c"># instead of just using the array name in the load instruction.</span>
+<span class="w">	</span><span class="c"># We can do that below, because we don't need the offset field to index inside the struct.</span>
+
+<span class="w">					</span><span class="c"># int height = topography_grid[row][col];</span>
+<span class="w">					</span><span class="c"># Calculate address of topography_grid[row][col]</span>
+<span class="w">	</span><span class="k">mul</span><span class="w">	</span><span class="kt">$t4</span><span class="nb">,</span><span class="w"> </span><span class="kt">$t1</span><span class="nb">,</span><span class="w"> </span>MAP_SIZE<span class="w">	</span><span class="c"># $t4 = row * 5</span>
+<span class="w">	</span><span class="k">add</span><span class="w">	</span><span class="kt">$t4</span><span class="nb">,</span><span class="w"> </span><span class="kt">$t4</span><span class="nb">,</span><span class="w"> </span><span class="kt">$t2</span><span class="w">		</span><span class="c"># $t4 = row * 5 + col</span>
+<span class="w">	</span><span class="k">mul</span><span class="w">	</span><span class="kt">$t4</span><span class="nb">,</span><span class="w"> </span><span class="kt">$t4</span><span class="nb">,</span><span class="w"> </span><span class="kc">4</span>
+
+<span class="w">	</span><span class="c"># ...and load the height from it</span>
+<span class="w">	</span><span class="k">lw</span><span class="w">	</span><span class="kt">$t3</span><span class="nb">,</span><span class="w"> </span>topography_grid(<span class="kt">$t4</span>)<span class="w">	</span><span class="c"># $t3 = topography_grid[row][col]</span>
+
+<span class="w">					</span><span class="c"># printf("Height at %d,%d=%d\n", row, col, height);</span>
+
+<span class="w">	</span><span class="nv">li</span><span class="w">	</span><span class="kt">$v0</span><span class="nb">,</span><span class="w"> </span><span class="kc">4</span><span class="w">			</span><span class="c"># $v0 = 4 (print string)</span>
+<span class="w">	</span><span class="nv">la</span><span class="w">	</span><span class="kt">$a0</span><span class="nb">,</span><span class="w"> </span>height_str<span class="w">		</span><span class="c"># load address of height_str into $a0</span>
+<span class="w">	</span><span class="k">syscall</span><span class="w">				</span><span class="c"># print height_str</span>
+
+<span class="w">	</span><span class="nv">li</span><span class="w">	</span><span class="kt">$v0</span><span class="nb">,</span><span class="w"> </span><span class="kc">1</span><span class="w">			</span><span class="c"># $v0 = 1 (print int)</span>
+<span class="w">	</span><span class="nv">move</span><span class="w">	</span><span class="kt">$a0</span><span class="nb">,</span><span class="w"> </span><span class="kt">$t1</span><span class="w">		</span><span class="c"># $a0 = row</span>
+<span class="w">	</span><span class="k">syscall</span><span class="w">				</span><span class="c"># print row</span>
+
+<span class="w">	</span><span class="nv">li</span><span class="w">	</span><span class="kt">$v0</span><span class="nb">,</span><span class="w"> </span><span class="kc">11</span><span class="w">			</span><span class="c"># $v0 = 11 (print ASCII character)</span>
+<span class="w">	</span><span class="nv">li</span><span class="w">	</span><span class="kt">$a0</span><span class="nb">,</span><span class="w"> </span>'<span class="nb">,</span>'<span class="w">		</span><span class="c"># $a0 = ','</span>
+<span class="w">	</span><span class="k">syscall</span><span class="w">				</span><span class="c"># print ','</span>
+
+<span class="w">	</span><span class="nv">li</span><span class="w">	</span><span class="kt">$v0</span><span class="nb">,</span><span class="w"> </span><span class="kc">1</span><span class="w">			</span><span class="c"># $v0 = 1 (print int)</span>
+<span class="w">	</span><span class="nv">move</span><span class="w">	</span><span class="kt">$a0</span><span class="nb">,</span><span class="w"> </span><span class="kt">$t2</span><span class="w">		</span><span class="c"># $a0 = col</span>
+<span class="w">	</span><span class="k">syscall</span><span class="w">				</span><span class="c"># print col</span>
+
+<span class="w">	</span><span class="nv">li</span><span class="w">	</span><span class="kt">$v0</span><span class="nb">,</span><span class="w"> </span><span class="kc">11</span><span class="w">			</span><span class="c"># $v0 = 11 (print ASCII character)</span>
+<span class="w">	</span><span class="nv">li</span><span class="w">	</span><span class="kt">$a0</span><span class="nb">,</span><span class="w"> </span>'<span class="nb">=</span>'<span class="w">		</span><span class="c"># $a0 = '='</span>
+<span class="w">	</span><span class="k">syscall</span><span class="w">				</span><span class="c"># print '='</span>
+
+<span class="w">	</span><span class="nv">li</span><span class="w">	</span><span class="kt">$v0</span><span class="nb">,</span><span class="w"> </span><span class="kc">1</span><span class="w">			</span><span class="c"># $v0 = 1 (print int)</span>
+<span class="w">	</span><span class="nv">move</span><span class="w">	</span><span class="kt">$a0</span><span class="nb">,</span><span class="w"> </span><span class="kt">$t3</span><span class="w">		</span><span class="c"># $a0 = height</span>
+<span class="w">	</span><span class="k">syscall</span><span class="w">				</span><span class="c"># print height</span>
+
+<span class="w">	</span><span class="nv">li</span><span class="w">	</span><span class="kt">$v0</span><span class="nb">,</span><span class="w"> </span><span class="kc">11</span><span class="w">			</span><span class="c"># $v0 = 11 (print ASCII character)</span>
+<span class="w">	</span><span class="nv">li</span><span class="w">	</span><span class="kt">$a0</span><span class="nb">,</span><span class="w"> </span>'\n'<span class="w">		</span><span class="c"># $a0 = '\n'</span>
+<span class="w">	</span><span class="k">syscall</span><span class="w">				</span><span class="c"># print '\n'</span>
+
+<span class="nf">points_loop_iter:</span>
+<span class="w">	</span><span class="k">addi</span><span class="w">	</span><span class="kt">$t0</span><span class="nb">,</span><span class="w"> </span><span class="kt">$t0</span><span class="nb">,</span><span class="w"> </span><span class="kc">1</span><span class="w">		</span><span class="c"># i++</span>
+<span class="w">	</span><span class="nv">b</span><span class="w">	</span>points_loop_cond<span class="w">	</span><span class="c"># branch to points_loop_cond</span>
+
+<span class="nf">points_loop_end:</span>
+
+<span class="w">	</span><span class="k">jr</span><span class="w">	</span><span class="kt">$ra</span><span class="w">			</span><span class="c"># return 0;</span>
+
+
+
+<span class="ni">.data</span>
+
+<span class="c"># 2D grid representing the height data for an area.</span>
+<span class="nf">topography_grid:</span>
+<span class="w">	</span><span class="ni">.word</span><span class="w">	</span><span class="kc">0</span><span class="nb">,</span><span class="w"> </span><span class="kc">1</span><span class="nb">,</span><span class="w"> </span><span class="kc">1</span><span class="nb">,</span><span class="w"> </span><span class="kc">2</span><span class="nb">,</span><span class="w"> </span><span class="kc">3</span>
+<span class="w">	</span><span class="ni">.word</span><span class="w">	</span><span class="kc">1</span><span class="nb">,</span><span class="w"> </span><span class="kc">1</span><span class="nb">,</span><span class="w"> </span><span class="kc">2</span><span class="nb">,</span><span class="w"> </span><span class="kc">3</span><span class="nb">,</span><span class="w"> </span><span class="kc">4</span>
+<span class="w">	</span><span class="ni">.word</span><span class="w">	</span><span class="kc">1</span><span class="nb">,</span><span class="w"> </span><span class="kc">2</span><span class="nb">,</span><span class="w"> </span><span class="kc">3</span><span class="nb">,</span><span class="w"> </span><span class="kc">5</span><span class="nb">,</span><span class="w"> </span><span class="kc">7</span>
+<span class="w">	</span><span class="ni">.word</span><span class="w">	</span><span class="kc">3</span><span class="nb">,</span><span class="w"> </span><span class="kc">3</span><span class="nb">,</span><span class="w"> </span><span class="kc">4</span><span class="nb">,</span><span class="w"> </span><span class="kc">5</span><span class="nb">,</span><span class="w"> </span><span class="kc">6</span>
+<span class="w">	</span><span class="ni">.word</span><span class="w">	</span><span class="kc">3</span><span class="nb">,</span><span class="w"> </span><span class="kc">4</span><span class="nb">,</span><span class="w"> </span><span class="kc">5</span><span class="nb">,</span><span class="w"> </span><span class="kc">6</span><span class="nb">,</span><span class="w"> </span><span class="kc">7</span>
+
+<span class="c"># The point2D_t struct is a 2D representation of a point, stored as a single struct thus:</span>
+<span class="c"># struct point2D {</span>
+<span class="c">#     int row;</span>
+<span class="c">#     int col;</span>
+<span class="c"># } typedef point2D_t;</span>
+<span class="c"># Consider! Which entries here will be which values?</span>
+
+<span class="c"># Points of interest to print heights for, as a 1D array of point2D_t structs.</span>
+<span class="c"># Note the memory layout of this array: each element requires 8 bytes, not 4.</span>
+<span class="nf">my_points:</span>
+<span class="w">	</span><span class="ni">.word</span><span class="w">	</span><span class="kc">1</span><span class="nb">,</span><span class="w"> </span><span class="kc">2</span>
+<span class="w">	</span><span class="ni">.word</span><span class="w">	</span><span class="kc">2</span><span class="nb">,</span><span class="w"> </span><span class="kc">3</span>
+<span class="w">	</span><span class="ni">.word</span><span class="w">	</span><span class="kc">0</span><span class="nb">,</span><span class="w"> </span><span class="kc">0</span>
+<span class="w">	</span><span class="ni">.word</span><span class="w">	</span><span class="kc">4</span><span class="nb">,</span><span class="w"> </span><span class="kc">4</span>
+
+<span class="nf">height_str:</span><span class="w"> </span><span class="ni">.asciiz</span><span class="w"> </span><span class="s">"Height at "</span>
+</pre></div>
+
+
+
+        </aside>
+    
+
+
+    </li>
+    
+
+
+    
+    <li id="q9">
+        
+<p class="text-danger"><strong>
+Challenge exercise,
+for those who have seen
+linked data structures in C.
+</strong>
+
+</p><p>
+Consider a linked list
+
+</p><figure class="text-center">
+<img class="img img-fluid p-4" src="COMP1521%2023T3%20%E2%80%94%20Week%2004%20Tutorial%20Answers_files/list.png">
+</figure>
+
+<p>
+which could be defined in MIPS as:
+
+</p><div class="highlight"><pre><span></span><span class="w">    </span><span class="na">.data</span>
+<span class="nl">list:</span><span class="w">   </span><span class="na">.word</span><span class="w"> </span><span class="no">node1</span>
+<span class="nl">node1:</span><span class="w">  </span><span class="na">.word</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="no">node2</span>
+<span class="nl">node2:</span><span class="w">  </span><span class="na">.word</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="no">node3</span>
+<span class="nl">node3:</span><span class="w">  </span><span class="na">.word</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="no">node4</span>
+<span class="nl">node4:</span><span class="w">  </span><span class="na">.word</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+</pre></div>
+
+
+<p>
+Write a MIPS function
+that takes a pointer to
+the first node in the list
+as its argument,
+and returns the maximum of
+all of the values in the list.
+In other words,
+write a MIPS version of this C function:
+
+</p><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">_node</span><span class="w"> </span><span class="n">Node</span><span class="p">;</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">_node</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="n">next</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">max</span><span class="w"> </span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="n">list</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">list</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="n">curr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">;</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">curr</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">curr</span><span class="o">-&gt;</span><span class="n">value</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">max</span><span class="p">)</span>
+<span class="w">            </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">curr</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">;</span>
+<span class="w">        </span><span class="n">curr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">curr</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">max</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>
+You can assume that
+only positive data values
+are stored in the list.
+
+
+    
+        </p><aside id="q9-answer" class="answer">
+            
+<p>
+Using the standard function prologue and epilogue:
+
+</p><div class="highlight"><pre><span></span><span class="c1"># Register usage:</span>
+<span class="c1">#   $v0: return value</span>
+<span class="c1">#   $a0: pointer to first node in list</span>
+<span class="c1">#   $t0: current node in the list</span>
+<span class="c1">#   $v0: current max value</span>
+<span class="nl">max:</span>
+<span class="w">        </span><span class="c1"># prologue</span>
+<span class="w">        </span><span class="nf">begin</span>
+<span class="w">        </span><span class="nf">push</span><span class="w">    </span><span class="no">$ra</span>
+
+<span class="w">        </span><span class="c1"># body</span>
+<span class="w">        </span><span class="nf">bne</span><span class="w">     </span><span class="no">$a0</span><span class="p">,</span><span class="w"> </span><span class="no">$0</span><span class="p">,</span><span class="w"> </span><span class="no">max_if_not_null</span><span class="w">        </span><span class="c1"># if (list == NULL) return -1;</span>
+<span class="w">        </span><span class="nf">li</span><span class="w">      </span><span class="no">$v0</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span>
+<span class="w">        </span><span class="nf">j</span><span class="w">       </span><span class="no">max_end</span>
+
+<span class="nl">max_if_not_null:</span>
+<span class="w">        </span><span class="nf">move</span><span class="w">    </span><span class="no">$s0</span><span class="p">,</span><span class="w"> </span><span class="no">$a0</span><span class="w">                        </span><span class="c1"># curr = list;</span>
+<span class="w">        </span><span class="nf">lw</span><span class="w">      </span><span class="no">$v0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">(</span><span class="no">$s0</span><span class="p">)</span><span class="w">                     </span><span class="c1"># max = list-&gt;value;</span>
+
+<span class="nl">max_loop_list:</span>
+<span class="w">        </span><span class="nf">beq</span><span class="w">     </span><span class="no">$s0</span><span class="p">,</span><span class="w"> </span><span class="no">$0</span><span class="p">,</span><span class="w"> </span><span class="no">max_end</span><span class="w">                </span><span class="c1"># if (curr == NULL) exit the loop</span>
+
+<span class="w">        </span><span class="nf">lw</span><span class="w">      </span><span class="no">$t0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">(</span><span class="no">$s0</span><span class="p">)</span><span class="w">                     </span><span class="c1"># $t0 = curr-&gt;value</span>
+<span class="w">        </span><span class="nf">ble</span><span class="w">     </span><span class="no">$t0</span><span class="p">,</span><span class="w"> </span><span class="no">$v0</span><span class="p">,</span><span class="w"> </span><span class="no">max_loop_increment</span><span class="w">    </span><span class="c1"># if (curr-&gt;value &lt;= max) goto max_loop_increment;</span>
+<span class="w">        </span><span class="nf">move</span><span class="w">    </span><span class="no">$v0</span><span class="p">,</span><span class="w"> </span><span class="no">$t0</span><span class="w">                        </span><span class="c1"># max = curr-&gt;value</span>
+
+<span class="nl">max_loop_increment:</span>
+<span class="w">        </span><span class="nf">lw</span><span class="w">      </span><span class="no">$s0</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">(</span><span class="no">$s0</span><span class="p">)</span><span class="w">                     </span><span class="c1"># curr = curr-&gt;next</span>
+<span class="w">                                                </span><span class="c1"># The offset of 4 is used because the second field of </span>
+<span class="w">                                                </span><span class="c1"># the node struct is the next node in the list.</span>
+<span class="w">        </span><span class="nf">j</span><span class="w">       </span><span class="no">loop</span>
+
+<span class="nl">max_end:</span>
+<span class="w">        </span><span class="c1"># epilogue</span>
+<span class="w">        </span><span class="nf">pop</span><span class="w">     </span><span class="no">$ra</span>
+<span class="w">        </span><span class="nf">end</span>
+<span class="w">        </span><span class="nf">jr</span><span class="w">      </span><span class="no">$ra</span>
+</pre></div>
+
+
+        </aside>
+    
+
+
+    </li>
+    
+
+
+    
+    <li id="q10">
+        
+<p>
+FIFO queues can be implemented
+using circular arrays.
+For example:
+
+</p><figure class="text-center">
+<img class="img img-fluid p-4" src="COMP1521%2023T3%20%E2%80%94%20Week%2004%20Tutorial%20Answers_files/queue.png">
+</figure>
+
+<p>
+And the C code to manipulate such a structure could be:
+
+</p><div class="highlight"><pre><span></span><span class="c1">// place item at the tail of the queue</span>
+<span class="c1">// if queue is full, returns -1; otherwise returns 0</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">enqueue</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">item</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nitems</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nitems</span><span class="w">  </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">tail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">tail</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
+<span class="w">    </span><span class="n">queue</span><span class="p">[</span><span class="n">tail</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">item</span><span class="p">;</span>
+<span class="w">    </span><span class="n">nitems</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// remove item from head of queue</span>
+<span class="c1">// if queue is empty, returns -1; otherwise returns removed value</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">dequeue</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nitems</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">queue</span><span class="p">[</span><span class="n">head</span><span class="p">];</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nitems</span><span class="w">  </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">head</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
+<span class="w">    </span><span class="n">nitems</span><span class="o">--</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>
+Assuming that the items in the queue are <code>int</code>s,
+and the following MIPS data definitions are used:
+
+</p><div class="highlight"><pre><span></span><span class="nl">nitems:</span><span class="w"> </span><span class="na">.word</span><span class="w"> </span><span class="mi">0</span>
+<span class="nl">head:</span><span class="w">   </span><span class="na">.word</span><span class="w"> </span><span class="mi">0</span>
+<span class="nl">tail:</span><span class="w">   </span><span class="na">.word</span><span class="w"> </span><span class="mi">0</span>
+<span class="nl">items:</span><span class="w">  </span><span class="na">.space</span><span class="w"> </span><span class="mi">32</span>
+</pre></div>
+
+
+<p>
+... implement the <code>enqueue()</code>
+and <code>dequeue()</code> functions in MIPS.
+
+</p><p>
+Use one of the standard
+function prologues and epilogues
+from lectures.
+
+
+    
+        </p><aside id="q10-answer" class="answer">
+            
+<div class="highlight"><pre><span></span><span class="w">        </span><span class="c1"># A function that simulates the behaviour of a small queue structure in MIPS.</span>
+<span class="w">        </span><span class="c1"># The queue is implemented using a circular array.</span>
+<span class="w">        </span><span class="c1"># This function adds an item to the queue, if there is space. Otherwise, it returns -1.</span>
+<span class="w">        </span><span class="c1">#</span>
+<span class="w">        </span><span class="c1"># Args: </span>
+<span class="w">        </span><span class="c1">#   $a0 - item: the item to be added to the queue</span>
+<span class="w">        </span><span class="c1"># Registers:</span>
+<span class="w">        </span><span class="c1">#   $v0 - return value: 0 if successful, -1 otherwise</span>
+<span class="w">        </span><span class="c1">#   $a0 - item: the item to be added to the queue</span>
+<span class="w">        </span><span class="c1">#   $t0 - Constant 8: the max size of the queue</span>
+<span class="w">        </span><span class="c1">#   $t1 - nitems: the number of items in the queue currently</span>
+<span class="w">        </span><span class="c1">#   $t2 - tail: the index of the tail of the queue</span>
+<span class="w">        </span><span class="c1">#   $t3 - offset: the offset of the tail of the queue in the circular array</span>
+<span class="nl">enqueue:</span>
+<span class="w">        </span><span class="c1"># prologue</span>
+<span class="w">        </span><span class="nf">begin</span>
+<span class="w">        </span><span class="nf">push</span><span class="w">    </span><span class="no">$ra</span>
+
+
+<span class="w">        </span><span class="c1"># body</span>
+<span class="w">        </span><span class="nf">li</span><span class="w">      </span><span class="no">$t0</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span>
+<span class="w">        </span><span class="nf">lw</span><span class="w">      </span><span class="no">$t1</span><span class="p">,</span><span class="w"> </span><span class="no">nitems</span>
+
+<span class="w">        </span><span class="nf">bne</span><span class="w">     </span><span class="no">$t0</span><span class="p">,</span><span class="w"> </span><span class="no">$t1</span><span class="p">,</span><span class="w"> </span><span class="no">enqueue_not_full</span><span class="w">      </span><span class="c1">#  if (nitems == 8) return -1;</span>
+
+<span class="w">        </span><span class="nf">li</span><span class="w">      </span><span class="no">$v0</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span>
+<span class="w">        </span><span class="nf">j</span><span class="w">       </span><span class="no">enqueue_epilogue</span>
+
+<span class="nl">enqueue_not_full:</span>
+<span class="w">        </span><span class="nf">lw</span><span class="w">      </span><span class="no">$t2</span><span class="p">,</span><span class="w"> </span><span class="no">tail</span><span class="w">                       </span><span class="c1">#  if (nitems &gt; 0) tail = (tail+1) % 8;</span>
+
+<span class="w">        </span><span class="nf">beq</span><span class="w">     </span><span class="no">$t1</span><span class="p">,</span><span class="w"> </span><span class="no">$0</span><span class="p">,</span><span class="w"> </span><span class="no">enqueue_store_tail</span><span class="w">     </span><span class="c1">#  if (nitems == 0) goto enqueue_store_tail</span>
+
+<span class="w">        </span><span class="nf">addi</span><span class="w">    </span><span class="no">$t2</span><span class="p">,</span><span class="w"> </span><span class="no">$t2</span><span class="p">,</span><span class="w"> </span><span class="no">$1</span><span class="w">                    </span><span class="c1">#  tail = (tail+1) % 8;</span>
+<span class="w">        </span><span class="nf">rem</span><span class="w">     </span><span class="no">$t2</span><span class="p">,</span><span class="w"> </span><span class="no">$t2</span><span class="p">,</span><span class="w"> </span><span class="no">$t0</span>
+<span class="w">        </span><span class="nf">sw</span><span class="w">      </span><span class="no">$t2</span><span class="p">,</span><span class="w"> </span><span class="no">tail</span>
+
+<span class="nl">enqueue_store_tail:</span>
+<span class="w">        </span><span class="nf">mul</span><span class="w">     </span><span class="no">$t3</span><span class="p">,</span><span class="w"> </span><span class="no">$t2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span>
+<span class="w">        </span><span class="nf">sw</span><span class="w">      </span><span class="no">$a0</span><span class="p">,</span><span class="w"> </span><span class="no">queue</span><span class="p">(</span><span class="no">$t3</span><span class="p">)</span>
+
+<span class="w">        </span><span class="nf">lw</span><span class="w">      </span><span class="no">$t2</span><span class="p">,</span><span class="w"> </span><span class="no">nitems</span><span class="w">                     </span><span class="c1">#  nitems++;</span>
+<span class="w">        </span><span class="nf">addi</span><span class="w">    </span><span class="no">$t2</span><span class="p">,</span><span class="w"> </span><span class="no">$t2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">        </span><span class="nf">sw</span><span class="w">      </span><span class="no">$t2</span><span class="p">,</span><span class="w"> </span><span class="no">nitems</span>
+
+<span class="w">        </span><span class="nf">li</span><span class="w">      </span><span class="no">$v0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w">                          </span><span class="c1">#  return 0;</span>
+
+<span class="nl">enqueue_epilogue:</span>
+<span class="w">        </span><span class="c1"># epilogue</span>
+<span class="w">        </span><span class="nf">pop</span><span class="w">     </span><span class="no">$ra</span>
+<span class="w">        </span><span class="nf">end</span>
+<span class="w">        </span><span class="nf">jr</span><span class="w">      </span><span class="no">$ra</span>
+
+
+
+
+<span class="w">        </span><span class="c1"># A function that simulates the behaviour of a small queue structure in MIPS.</span>
+<span class="w">        </span><span class="c1"># The queue is implemented using a circular array.</span>
+<span class="w">        </span><span class="c1"># This function removes an item to the queue, if there is one. Otherwise, it returns -1.</span>
+<span class="w">        </span><span class="c1">#</span>
+<span class="w">        </span><span class="c1"># Args:</span>
+<span class="w">        </span><span class="c1">#   [None]</span>
+<span class="w">        </span><span class="c1"># Registers:</span>
+<span class="w">        </span><span class="c1">#   $v0 - return value: value of the 'item' if successful, -1 otherwise</span>
+<span class="w">        </span><span class="c1">#   $a0 - item: the item to be added to the queue</span>
+<span class="w">        </span><span class="c1">#   $t0 - Constant 8: the max size of the queue</span>
+<span class="w">        </span><span class="c1">#   $t1 - nitems: the number of items in the queue currently</span>
+<span class="w">        </span><span class="c1">#   $t2 - head: the index of the head of the queue</span>
+<span class="w">        </span><span class="c1">#   $t3 - offset: the offset of the head of the queue in the circular array</span>
+<span class="nl">dequeue:</span>
+
+<span class="w">        </span><span class="c1"># prologue</span>
+<span class="w">        </span><span class="nf">begin</span>
+<span class="w">        </span><span class="nf">push</span><span class="w">    </span><span class="no">$ra</span>
+
+
+<span class="w">        </span><span class="c1"># body</span>
+<span class="w">        </span><span class="c1">#  if (nitems == 0) return -1;</span>
+<span class="w">        </span><span class="c1">#  int res = queue[head];</span>
+<span class="w">        </span><span class="c1">#  if (nitems &gt; 1) head = (head+1) % 8;</span>
+<span class="w">        </span><span class="c1">#  nitems--;</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="nf">li</span><span class="w">      </span><span class="no">$t0</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span>
+<span class="w">        </span><span class="nf">lw</span><span class="w">      </span><span class="no">$t1</span><span class="p">,</span><span class="w"> </span><span class="no">nitems</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="nf">bne</span><span class="w">     </span><span class="no">$t0</span><span class="p">,</span><span class="w"> </span><span class="no">$0</span><span class="p">,</span><span class="w"> </span><span class="no">dequeue_not_empty</span><span class="w">      </span><span class="c1">#  if (nitems == 0) return -1;</span>
+
+<span class="w">        </span><span class="nf">li</span><span class="w">      </span><span class="no">$v0</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span>
+<span class="w">        </span><span class="nf">j</span><span class="w">       </span><span class="no">dequeue_epilogue</span>
+
+<span class="nl">dequeue_not_empty:</span>
+<span class="w">        </span><span class="nf">lw</span><span class="w">      </span><span class="no">$t2</span><span class="p">,</span><span class="w"> </span><span class="no">head</span><span class="w">                       </span><span class="c1"># res = queue[head]</span>
+<span class="w">        </span><span class="nf">mul</span><span class="w">     </span><span class="no">$t3</span><span class="p">,</span><span class="w"> </span><span class="no">$t2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span>
+
+<span class="w">        </span><span class="nf">lw</span><span class="w">      </span><span class="no">$v0</span><span class="p">,</span><span class="w"> </span><span class="no">queue</span><span class="p">(</span><span class="no">$t3</span><span class="p">)</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="nf">li</span><span class="w">      </span><span class="no">$t3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">        </span><span class="nf">beq</span><span class="w">     </span><span class="no">$t2</span><span class="p">,</span><span class="w"> </span><span class="no">$t3</span><span class="p">,</span><span class="w"> </span><span class="no">dequeue_shrink_tail</span><span class="w">   </span><span class="c1"># if (nitems == 1) skip</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="nf">add</span><span class="w">     </span><span class="no">$t2</span><span class="p">,</span><span class="w"> </span><span class="no">$t2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w">                     </span><span class="c1"># head = (head+1) % 8</span>
+<span class="w">        </span><span class="nf">rem</span><span class="w">     </span><span class="no">$t2</span><span class="p">,</span><span class="w"> </span><span class="no">$t2</span><span class="p">,</span><span class="w"> </span><span class="no">$t0</span>
+<span class="w">        </span><span class="nf">sw</span><span class="w">      </span><span class="no">$t2</span><span class="p">,</span><span class="w"> </span><span class="no">head</span>
+
+<span class="nl">dequeue_shrink_tail:</span>
+<span class="w">        </span><span class="nf">lw</span><span class="w">      </span><span class="no">$t2</span><span class="p">,</span><span class="w"> </span><span class="no">nitems</span><span class="w">                     </span><span class="c1"># nitems--</span>
+<span class="w">        </span><span class="nf">addi</span><span class="w">    </span><span class="no">$t2</span><span class="p">,</span><span class="w"> </span><span class="no">$t2</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span>
+<span class="w">        </span><span class="nf">sw</span><span class="w">      </span><span class="no">$t2</span><span class="p">,</span><span class="w"> </span><span class="no">nitems</span>
+
+<span class="nl">dequeue_epilogue:</span>
+<span class="w">        </span><span class="c1"># epilogue</span>
+<span class="w">        </span><span class="nf">pop</span><span class="w">     </span><span class="no">$ra</span>
+<span class="w">        </span><span class="nf">end</span>
+<span class="w">        </span><span class="nf">jr</span><span class="w">      </span><span class="no">$ra</span><span class="w">                             </span><span class="c1">#  return res;</span>
+</pre></div>
+
+
+        </aside>
+    
+
+
+    </li>
+    
+
+
+
+
+            </ol>
+
+            
+            
+        </section>
+    
+
+    
+        <section id="revision_questions">
+            
+                <h3>Revision questions</h3>
+                <p>
+                    The following questions are primarily intended for revision, either this week or later in session.
+                    <br>
+                    Your tutor may still choose to cover some of these questions, time permitting.
+                </p>
+            
+
+            
+            <ol>
+                
+
+
+    
+    <li id="q11">
+        
+<p>
+Give MIPS directives
+to represent the following variables:
+
+</p><ol type="a">
+<li> <code>int v0;</code>
+</li><li> <code>int v1 = 42;</code>
+</li><li> <code>char v2;</code>
+</li><li> <code>char v3 = 'a';</code>
+</li><li> <code>double v4;</code>
+</li><li> <code>int v5[20];</code>
+</li><li> <code>int v6[10][5];</code>
+</li><li> <code>struct { int x; int y; } v7;</code>
+</li><li> <code>struct { int x; int y; } v8[4];</code>
+</li><li> <code>struct { int x; int y; } *v9[4];</code>
+</li></ol>
+<p>
+Assume that we are placing the variables in memory,
+at an appropriately aligned address,
+and with a label which is the same as the C variable name.
+
+
+    
+        </p><aside id="q11-answer" class="answer">
+            
+<ol type="a">
+<li> <code>v0: .space 4</code>
+</li><li> <code>v1: .word 42</code>
+</li><li> <code>v2: .space 1</code>
+</li><li> <code>v3: .byte 'a'</code>
+</li><li> <code>v4: .space 8</code>
+</li><li> <code>v5: .space 80</code>  (20 * 4-byte ints)
+</li><li> <code>v6: .space 200</code> (10 * 5 * 4-byte ints)
+</li><li> <code>v7: .space 8</code> (struct is 2 * 4-byte ints)
+</li><li> <code>v8: .space 32</code> (4 * 8-byte structs)
+</li><li> <code>v9: .space 16</code> (4 * 4-byte pointers)
+</li></ol>
+
+        </aside>
+    
+
+
+    </li>
+    
+
+
+    
+    <li id="q12">
+        
+<p>
+If we execute the following small MIPS program:
+
+</p><div class="highlight"><pre><span></span><span class="w">   </span><span class="na">.data</span>
+<span class="nl">x:</span><span class="w"> </span><span class="na">.space</span><span class="w"> </span><span class="mi">4</span>
+<span class="w">   </span><span class="na">.text</span>
+<span class="w">   </span><span class="na">.globl</span><span class="w"> </span><span class="no">main</span>
+<span class="nl">main:</span>
+<span class="w">   </span><span class="nf">li</span><span class="w">  </span><span class="no">$a0</span><span class="p">,</span><span class="w"> </span><span class="mi">32768</span>
+<span class="w">   </span><span class="nf">li</span><span class="w">  </span><span class="no">$v0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">   </span><span class="nf">syscall</span>
+<span class="w">   </span><span class="nf">sw</span><span class="w">  </span><span class="no">$a0</span><span class="p">,</span><span class="w"> </span><span class="no">x</span>
+<span class="w">   </span><span class="nf">lh</span><span class="w">  </span><span class="no">$a0</span><span class="p">,</span><span class="w"> </span><span class="no">x</span>
+<span class="w">   </span><span class="nf">li</span><span class="w">  </span><span class="no">$v0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">   </span><span class="nf">syscall</span>
+<span class="w">   </span><span class="nf">jr</span><span class="w">  </span><span class="no">$ra</span>
+</pre></div>
+
+
+<p>
+... we observed that the first <code>syscall</code> displays <code>32768</code>,
+but the second <code>syscall</code> displays <code>-32768</code>.
+Why does this happen?
+
+
+    
+        </p><aside id="q12-answer" class="answer">
+            
+<p>
+Initially, the value <code>32768</code> is loaded into <code>$a0</code>,
+printed, and then stored in the 4-byte object called <code>x</code>.
+Then a 2-byte quantity is loaded from <code>x</code> into <code>$a0</code>.
+The hexadecimal representation of  the value stored in <code>x</code>
+is <code>0x00008000</code>. When the two bytes are loaded the value
+<code>0x8000</code> is used. Since <code>lh</code> deals with signed
+quantities, and since the first bit of <code>0x8000</code> is a 1,
+it ends up being interpreted as a negative value by "sign extension".
+This means copying the top bit into all 16 bits of the 32-bit register,
+giving <code>0xFFFF8000</code>, which is the 32-bit two's-complement
+representation of the number <code>-32768</code>.
+</p>
+
+        </aside>
+    
+
+
+    </li>
+    
+
+
+
+
+            </ol>
+
+            
+            
+        </section>
+    
+
+
+    
+</main>
+<footer class="mt-3 pt-3 bg-dark text-center no-print">
+    <p class="text-muted">
+        <strong>COMP1521 23T3: Computer Systems Fundamentals</strong>
+        is brought to you by <br>
+        the <a href="https://www.cse.unsw.edu.au/">School of Computer Science and Engineering</a><br>
+        at the <a href="https://www.unsw.edu.au/">University of New South Wales</a>, Sydney.<br>
+        For all enquiries, please email the class account at
+        <a href="mailto:cs1521@cse.unsw.edu.au">cs1521@cse.unsw.edu.au</a><br>
+
+        <small>CRICOS Provider 00098G</small>
+    </p>
+
+    <div class="float-right">
+<a href="https://github.com/COMP1521UNSW/course-infra/edit/23t3.cs1521/tlb/04/tut.html" class="btn btn-info btn-sm" role="button">
+Edit tlb/04/tut.html on Github
+</a>
+</div>
+</footer>
+
+    
+
+
+<div style="position: absolute !important; top: 0px !important; left: 0px !important; height: 0px !important; width: 0px !important;" data-lastpass-root=""></div><img src="COMP1521%2023T3%20%E2%80%94%20Week%2004%20Tutorial%20Answers_files/favicon.ico" style="visibility: hidden;"></body></html>
