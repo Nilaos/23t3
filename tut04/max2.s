@@ -13,9 +13,10 @@
 # int max(int a[], int length) {
 max:
 	# prologue
+	# Push equivalent
+	addi	$sp, $sp, -4
+	sw	$s0, ($sp)
 	push	$ra
-	push	$s0
-	push	$s1
 
 	# int first_element = a[0];
 	lw	$s0, 0($a0)		# 
@@ -39,9 +40,9 @@ max__recursive:
 	# length - 1
 	add	$a1, $a1, -1	# $a1 = $a1 + -1
 
-	# Before this line: $ra is at line 72
-	jal	max
-	# After that line: $ra is 41
+	# $ra is currently line 76
+	jal 	max
+	# $ra is now at line 44
 	# Assume now that all $t reg are 
 	
 	move	$t1, $v0	# max_so_far = function call result
@@ -59,12 +60,11 @@ max__swap_max_so_far:
 
 max__return:
 	# epilogue - MUST MATCH PROLOGUE
-	# clean up stack frame
-
-	pop	$s1 # Reverse order!
-	pop 	$s0
 	pop	$ra
+	pop	$s0
+
 	jr	$ra
+
 
 
 

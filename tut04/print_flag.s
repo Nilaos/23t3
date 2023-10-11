@@ -24,18 +24,19 @@ main__row_loop_cond:
 						# while(row < 6) {
 	bge	$t0, $t6, main__row_loop_end	# if $t0 > $t6 then main__row_loop_end
 
-	li	$t1, 0			# $t1 = 0
+	li	$t1, 0			# $t1 = 0 is the column counter
 
 main__col_loop_cond:
 	bge	$t1, FLAG_COLS, main__col_loop_end	# if $t1 > FLAG_COLS goto target
 
 	# offset calculation in $t3 - TODO:
 	# 1) Row offset
-	add	$t3, $0, $t0	# Get the row number
-	mul	$t3, $t3, FLAG_COLS # Multiply row * N_COLS to get the size of a row
-	add	$t3, $t3, $t1	# 2) Add Column Offset * sizeof(char)
-				# if this wasn't chars, we'd also multiply by 4
-
+	mul	$t3,	$t0, 	FLAG_COLS
+	# 2) Add column offset
+	add	$t3,	$t0,	$t1
+	# 3) If needed, multiply by size of variable
+	mul	$t3,	$t3,	1
+	# 4) Add the base address & Load the value
 	lb	$t4, flag($t3)		# load word from 0($s1) into $t1
 
 	move	$a0, $t4		# $a0 = $41

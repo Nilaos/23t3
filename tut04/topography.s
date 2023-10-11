@@ -37,8 +37,8 @@ points_loop_cond:
 	la	$t4,	my_points	# base address of array of structs
 	
 
-	lw	$t1, ROW_OFFT($t4)
-	lw	$t2, COL_OFFT($t4)
+	lw	$t4, 	ROW_OFFT($t4)
+	lw	$t4, 	COL_OFFT($t4)
 
 	# 2) Load the height from the 2D array of integers
 	# &elem[i] = start of the array + ...
