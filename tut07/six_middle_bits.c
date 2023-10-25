@@ -16,15 +16,20 @@ int main(int argc, char *argv[])
 uint32_t six_middle_bits(uint32_t bits)
 {
     // Step 1: Make the mask
-    uint32_t mask;
+    uint32_t mask = 0b111111;
 
     // Step 2: Align mask and value
+    uint32_t temp = bits >> 13;
 
     // Step 3: extract value
+    uint32_t result = bits & mask;
 
     // One line equivalent:
+    result = (bits >> 13) & 0b111111;
 
     // Moving mask example:
+    mask = mask << 13;
+    result = (bits & mask) >> 13;
 
     // All of these operations produce equivalent, equal results
     // None modify the original variable
