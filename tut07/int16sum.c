@@ -10,7 +10,7 @@ int main(void)
 
     res = a + b;
 
-    printf("%hd + %hd = %d\n", a, b, res);
+    printf("%hd + %hd = %hd\n", a, b, res);
 
     return 0;
 }
