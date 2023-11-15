@@ -4,6 +4,7 @@
 #include <stdlib.h>
 
 int money = 0;
+atomic_int atomic_money = 0;
 
 void *add_5000_to_counter(void *data)
 {
@@ -35,17 +36,22 @@ void *sub_1000_to_counter(void *data)
 int main(void)
 {
     pthread_t thread1;
-    pthread_create(&thread1, NULL, add_5000_to_counter, &money_lock);
+    pthread_create(&thread1, NULL, add_5000_to_counter, NULL);
 
     pthread_t thread2;
-    pthread_create(&thread2, NULL, add_5000_to_counter, &money_lock);
+    pthread_create(&thread2, NULL, add_5000_to_counter, NULL);
 
     pthread_t thread3;
-    pthread_create(&thread3, NULL, sub_1000_to_counter, &money_lock);
+    pthread_create(&thread3, NULL, sub_1000_to_counter, NULL);
 
     pthread_t thread4;
-    pthread_create(&thread4, NULL, sub_1000_to_counter, &money_lock);
+    pthread_create(&thread4, NULL, sub_1000_to_counter, NULL);
+
+    pthread_join(thread1, NULL);
+    pthread_join(thread2, NULL);
+    pthread_join(thread3, NULL);
+    pthread_join(thread4, NULL);
 
     // if program works correctly, should print 10000
-    printf("Final totals: %d, %d, %d\n", money, netflix_money, atomic_money);
+    printf("Final totals: %d, %d, %d\n", money, atomic_money);
 }
